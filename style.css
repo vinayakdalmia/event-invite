@@ -838,14 +838,24 @@ h1, h2, h3, h4, h5 {
   justify-content: center;
 }
 
-/* Sacred geometry — positioned top-right, clipped */
-.story-card__geometry {
+/* Card Image Background */
+.story-card__bg {
   position: absolute;
-  top: -30%;
-  right: -30%;
-  width: 110%;
-  height: auto;
-  opacity: 0.12;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Dark gradient overlay so text remains readable over any image */
+.story-card__frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+  z-index: 0;
   pointer-events: none;
 }
 
@@ -853,12 +863,12 @@ h1, h2, h3, h4, h5 {
 .story-card__content {
   position: relative;
   z-index: 1;
-  padding: 1.2rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  justify-content: center;
+  justify-content: flex-end; /* Push text to the bottom where the gradient is darker */
   height: 100%;
 }
 
@@ -868,6 +878,7 @@ h1, h2, h3, h4, h5 {
   letter-spacing: 0.25em;
   text-transform: uppercase;
   margin-bottom: 0.6rem;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .story-card__theme {
@@ -878,62 +889,24 @@ h1, h2, h3, h4, h5 {
   letter-spacing: 0.02em;
   line-height: 1.15;
   margin-bottom: 0.6rem;
+  color: #FFFFFF;
 }
 
 .story-card__accent {
   width: 24px;
   height: 1px;
   margin-bottom: 0.8rem;
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .story-card__quote {
   font-family: var(--font-secondary);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-style: italic;
   line-height: 1.6;
   letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.9);
 }
-
-/* Theme: Purity — ivory/cream */
-.story-card[data-theme="purity"] .story-card__frame {
-  background: linear-gradient(180deg, #F5EDDA 0%, #FFF8E6 40%, #FAF0DC 100%);
-}
-.story-card[data-theme="purity"] .story-card__geometry { color: var(--deep-gold); opacity: 0.08; }
-.story-card[data-theme="purity"] .story-card__chapter { color: var(--gold); }
-.story-card[data-theme="purity"] .story-card__theme { color: var(--deep-gold); }
-.story-card[data-theme="purity"] .story-card__accent { background: var(--gold); opacity: 0.3; }
-.story-card[data-theme="purity"] .story-card__quote { color: var(--deep-gold); }
-
-/* Theme: Power — deep rust gradient */
-.story-card[data-theme="power"] .story-card__frame {
-  background: linear-gradient(180deg, #A8564A 0%, #8B3F2C 40%, #6E2F20 100%);
-}
-.story-card[data-theme="power"] .story-card__geometry { color: #F5EDDA; opacity: 0.1; }
-.story-card[data-theme="power"] .story-card__chapter { color: rgba(255, 248, 230, 0.6); }
-.story-card[data-theme="power"] .story-card__theme { color: #FFF8E6; }
-.story-card[data-theme="power"] .story-card__accent { background: rgba(255, 248, 230, 0.3); }
-.story-card[data-theme="power"] .story-card__quote { color: rgba(255, 248, 230, 0.8); }
-
-/* Theme: Divinity — warm gold gradient */
-.story-card[data-theme="divinity"] .story-card__frame {
-  background: linear-gradient(180deg, #C9A97A 0%, #B99874 40%, #A8875E 100%);
-}
-.story-card[data-theme="divinity"] .story-card__geometry { color: var(--deep-brown); opacity: 0.1; }
-.story-card[data-theme="divinity"] .story-card__chapter { color: rgba(72, 45, 34, 0.5); }
-.story-card[data-theme="divinity"] .story-card__theme { color: var(--deep-brown); }
-.story-card[data-theme="divinity"] .story-card__accent { background: rgba(72, 45, 34, 0.25); }
-.story-card[data-theme="divinity"] .story-card__quote { color: rgba(72, 45, 34, 0.75); }
-
-/* Theme: Cosmic — dark forest/teal */
-.story-card[data-theme="cosmic"] .story-card__frame {
-  background: linear-gradient(180deg, #4A5D4F 0%, #3B4D40 40%, #2C3E31 100%);
-}
-.story-card[data-theme="cosmic"] .story-card__geometry { color: rgba(255, 248, 230, 0.6); opacity: 0.08; }
-.story-card[data-theme="cosmic"] .story-card__chapter { color: rgba(255, 248, 230, 0.5); }
-.story-card[data-theme="cosmic"] .story-card__theme { color: #F5EDDA; }
-.story-card[data-theme="cosmic"] .story-card__accent { background: rgba(255, 248, 230, 0.25); }
-.story-card[data-theme="cosmic"] .story-card__quote { color: rgba(255, 248, 230, 0.75); }
-
 /* =============================================
    SECTION 6: THE COLLABORATION
    ============================================= */
