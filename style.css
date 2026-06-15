@@ -775,7 +775,6 @@ h1, h2, h3, h4, h5 {
   justify-content: flex-start;
   align-items: flex-start;
   text-align: left;
-  max-width: 55%;
 }
 
 .atelier-card__label {
@@ -826,21 +825,67 @@ h1, h2, h3, h4, h5 {
   opacity: 0.6;
 }
 
-.atelier-card__image-container {
+/* Typography details column for Card 2 */
+.atelier-card__notes-column {
   position: relative;
   z-index: 1;
-  width: 45%;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  padding-right: 1.5rem;
+  min-width: 120px;
+}
+
+.perfume-note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.note-name {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--rust);
+}
+
+.note-drops {
+  font-family: var(--font-secondary);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--rust);
+  opacity: 0.75;
+}
+
+.note-divider {
+  color: var(--rust);
+  font-size: 0.7rem;
+  opacity: 0.4;
+  margin-top: 0.6rem;
+}
+
+.perfume-stamp {
+  margin-top: 1rem;
+  color: var(--rust);
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.atelier-card__image {
-  max-width: 160%;
-  height: auto;
-  object-fit: contain;
-  /* Push image slightly to the right so it bleeds beautifully */
-  transform: translateX(10%);
+.stamp-svg {
+  width: 85px;
+  height: 85px;
+}
+
+.stamp-text {
+  font-family: var(--font-body);
+  font-size: 0.45rem;
+  letter-spacing: 0.35em;
+  fill: currentColor;
+  text-transform: uppercase;
 }
 
 /* Adjust layout for smaller screens */
@@ -848,20 +893,14 @@ h1, h2, h3, h4, h5 {
   .atelier-card {
     flex-direction: column;
     padding: 2.5rem 1.5rem;
+    gap: 2.5rem;
   }
   .atelier-card__content {
-    max-width: 100%;
-    margin-bottom: 2rem;
     align-items: center;
     text-align: center;
   }
-  .atelier-card__image-container {
-    width: 100%;
-    justify-content: center;
-  }
-  .atelier-card__image {
-    max-width: 100%;
-    transform: none;
+  .atelier-card__notes-column {
+    padding-right: 0;
   }
 }
 /* =============================================
