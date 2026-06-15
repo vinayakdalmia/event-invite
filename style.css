@@ -743,14 +743,15 @@ h1, h2, h3, h4, h5 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  justify-content: center;
+  justify-content: flex-start;
   aspect-ratio: 1.4; /* Adjusted slightly based on the new image proportions */
 }
 
 .atelier-card--theatrical .atelier-card__content {
-  align-items: center;
-  text-align: center;
-  margin: 0 auto;
+  align-items: flex-start;
+  text-align: left;
+  margin: 0;
+  max-width: 55%;
 }
 
 /* The delicate border with corner ornaments */
