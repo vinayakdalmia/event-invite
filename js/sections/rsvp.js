@@ -88,34 +88,53 @@ export function initRsvp() {
 
   // Form submission
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Gather form data
-      const formData = {
-        name: document.getElementById('rsvp-name')?.value,
-        phone: document.getElementById('rsvp-phone')?.value,
-        email: document.getElementById('rsvp-email')?.value,
-        guests: guests,
-        attendance: document.querySelector('.rsvp-attendance__option--active')?.dataset.value,
-      };
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<span>SUBMITTING...</span>';
+      submitBtn.disabled = true;
 
-      console.log('RSVP Submitted:', formData);
+      try {
+        // Gather all form data dynamically
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
 
-      // Animate out form, animate in confirmation
-      gsap.to(form, {
-        opacity: 0,
-        y: -20,
-        duration: 0.5,
-        ease: 'power2.in',
-        onComplete: () => {
-          form.style.display = 'none';
-          if (confirmation) {
-            confirmation.style.display = '';
-            animateConfirmation();
-          }
+        const response = await fetch('/api/rsvp', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
         }
-      });
+
+        console.log('RSVP Successfully Saved!');
+
+        // Animate out form, animate in confirmation
+        gsap.to(form, {
+          opacity: 0,
+          y: -20,
+          duration: 0.5,
+          ease: 'power2.in',
+          onComplete: () => {
+            form.style.display = 'none';
+            if (confirmation) {
+              confirmation.style.display = '';
+              animateConfirmation();
+            }
+          }
+        });
+      } catch (error) {
+        console.error('RSVP Submission Error:', error);
+        alert('There was an error submitting your RSVP. Please try again.');
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
     });
   }
 
