@@ -739,11 +739,18 @@ h1, h2, h3, h4, h5 {
 }
 
 .atelier-card--theatrical {
-  background-image: url('assets/images/theatrical.png');
+  background-image: url('assets/images/theatrical.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  aspect-ratio: 1.5; /* Keeps it wide like the design */
+  justify-content: center;
+  aspect-ratio: 1.4; /* Adjusted slightly based on the new image proportions */
+}
+
+.atelier-card--theatrical .atelier-card__content {
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
 }
 
 /* The delicate border with corner ornaments */
