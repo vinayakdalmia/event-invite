@@ -334,15 +334,50 @@
   <!-- SECTION 7: RSVP                              -->
   <!-- ============================================ -->
   <section id="rsvp" class="section section--rsvp">
-    <div class="rsvp__content" id="rsvp-container">
-      <div class="rsvp__header-area">
-        <p class="rsvp__label">WITH GRACE</p>
-        <h2 class="rsvp__title">Reserve Your Place</h2>
-        <p class="rsvp__subtitle">Seats are few. Each guest is welcomed by name.</p>
-        <div class="rsvp__divider">
-          <img src="assets/divider.png" class="divider-image" alt="Decorative Divider" loading="lazy" />
-        </div>
+    <div class="rsvp__content">
+      <p class="rsvp__label">WITH GRACE</p>
+      <h2 class="rsvp__title">Will you join us?</h2>
+      <p class="rsvp__subtitle">Seats are few. Each guest is welcomed by name.</p>
+
+      <button class="rsvp__button" id="rsvp-open">
+        <span>RESERVE YOUR PLACE</span>
+      </button>
+
+      <p class="rsvp__deadline">RSVP by 20 June 2026</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <svg class="footer__diamond" viewBox="0 0 12 12" width="10" height="10">
+        <path d="M6 0 L12 6 L6 12 L0 6 Z" fill="#B99874"/>
+      </svg>
+      <p class="footer__brand">VEDA × DIVYA SAMAL</p>
+      <p class="footer__location">Bangalore · MMXXVI</p>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- RSVP FORM (inline, hidden until triggered)   -->
+  <!-- ============================================ -->
+  <div class="rsvp-modal" id="rsvp-modal" style="display:none">
+    <div class="rsvp-modal__overlay"></div>
+    <div class="rsvp-modal__content">
+      <button class="rsvp-modal__close" id="rsvp-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <!-- Header with line accents -->
+      <div class="rsvp-modal__header">
+        <div class="rsvp-modal__header-line"></div>
+        <span class="rsvp-modal__brand">VEDA</span>
+        <div class="rsvp-modal__header-line"></div>
       </div>
+
+      <h3 class="rsvp-modal__title">Reserve Your Place</h3>
+      <p class="rsvp-modal__desc">A note from you to us — handwritten in spirit.</p>
 
       <form class="rsvp-form" id="rsvp-form">
         <div class="rsvp-form__field">
@@ -438,7 +473,7 @@
         </button>
       </form>
 
-      <!-- Confirmation (hidden initially) -->
+      <!-- Confirmation (hidden) -->
       <div class="rsvp-confirmation" id="rsvp-confirmation" style="display:none">
         <svg class="rsvp-confirmation__lotus" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
           <g class="confirmation-lotus-layer">
@@ -452,15 +487,7 @@
         <p class="rsvp-confirmation__text">We look forward to welcoming you.</p>
       </div>
     </div>
-
-    <!-- Footer -->
-    <div class="footer">
-      <svg class="footer__diamond" viewBox="0 0 12 12" width="10" height="10">
-        <path d="M6 0 L12 6 L6 12 L0 6 Z" fill="#B99874"/>
-      </svg>
-      <p class="footer__brand">VEDA × DIVYA SAMAL</p>
-      <p class="footer__location">Bangalore · MMXXVI</p>
-    </div>
+  </div>
 
   <script type="module" src="./js/main.js"></script>
 </body>
