@@ -916,20 +916,35 @@ h1, h2, h3, h4, h5 {
 
 /* Adjust layout for smaller screens */
 @media (max-width: 768px) {
-  .atelier-card,
-  .atelier-card--theatrical,
-  .atelier-card--perfume,
-  .atelier-card--jewellery {
+  .atelier-card {
     flex-direction: column;
     padding: 2.5rem 1.5rem;
     gap: 2.5rem;
     aspect-ratio: auto;
     min-height: 280px;
   }
+  .atelier-card--theatrical {
+    background-size: 50% auto;
+    background-position: right center;
+    aspect-ratio: auto;
+    min-height: 280px;
+  }
+  .atelier-card--perfume {
+    background-size: 50% auto;
+    background-position: right bottom;
+    aspect-ratio: auto;
+    min-height: 280px;
+  }
+  .atelier-card--jewellery {
+    background-size: 50% auto;
+    background-position: right bottom;
+    aspect-ratio: auto;
+    min-height: 280px;
+  }
   .atelier-card__content {
     align-items: flex-start;
     text-align: left;
-    max-width: 100%;
+    max-width: 58%;
   }
   .atelier-card__notes-column {
     padding-right: 0;
