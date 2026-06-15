@@ -211,42 +211,69 @@ h1, h2, h3, h4, h5 {
 }
 
 /* Door Pop-up */
+/* Elegant Circular Door Pop-up */
 .video-door-popup {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 248, 230, 0.9);
-  padding: 1.5rem 2.5rem;
-  border-radius: 40px;
-  border: 1px solid var(--gold-light);
-  box-shadow: 0 10px 30px rgba(72, 45, 34, 0.2);
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: rgba(255, 248, 230, 0.15);
+  border: 1px solid rgba(255, 248, 230, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 20;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.4s var(--ease-ceremony);
-  backdrop-filter: blur(5px);
+  transition: opacity 0.6s var(--ease-ceremony);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Expanding ripple effect */
+.video-door-popup::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 248, 230, 0.8);
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .video-door-popup--visible {
   opacity: 1;
   pointer-events: auto;
-  animation: pulse-glow 2s infinite alternate;
+}
+
+.video-door-popup--visible::before {
+  animation: ripple 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .video-door-popup__text {
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--rust);
-  margin: 0;
+  color: #FFF8E6;
   text-align: center;
+  line-height: 1.6;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
-@keyframes pulse-glow {
-  0% { box-shadow: 0 4px 20px rgba(185, 152, 116, 0.2); }
-  100% { box-shadow: 0 4px 35px rgba(185, 152, 116, 0.6); }
+@keyframes ripple {
+  0% { width: 100%; height: 100%; opacity: 1; border-width: 1.5px; }
+  100% { width: 170%; height: 170%; opacity: 0; border-width: 0px; }
 }
 
 /* =============================================
