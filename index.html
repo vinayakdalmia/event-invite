@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="Shakti: The Sacred Feminine — An immersive experience presented by Veda Jewellery × Divya Samal. 28 June 2026, Sabha BLR, Bangalore." />
+  <meta name="theme-color" content="#F8F0E6" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta property="og:title" content="Shakti: The Sacred Feminine" />
+  <meta property="og:description" content="An immersive experience presented by Veda Jewellery × Divya Samal" />
+  <meta property="og:type" content="website" />
+  <title>Shakti: The Sacred Feminine | Veda × Divya Samal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <!-- Paper grain overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Floating particles canvas -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- Audio toggle -->
+  <button id="audio-toggle" class="audio-toggle" aria-label="Toggle ambient sound">
+    <svg class="audio-icon audio-icon--off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+      <line x1="23" y1="9" x2="17" y2="15"/>
+      <line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+    <svg class="audio-icon audio-icon--on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display:none">
+      <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    </svg>
+  </button>
+
+  <!-- ============================================ -->
+  <!-- SECTION 1: ARRIVAL                           -->
+  <!-- ============================================ -->
+  <section id="arrival" class="section section--arrival">
+    <div class="arrival__content">
+      <!-- Full Screen Video Container -->
+      <div class="arrival-video-wrapper" id="video-wrapper">
+        <!-- Added playsinline, muted, but removed loop so it stops at the end -->
+        <video id="intro-video" class="arrival-video" src="assets/intro-video.mp4" playsinline muted></video>
+        
+        <!-- Pop-up overlay that appears when video pauses -->
+        <div class="video-door-popup" id="video-door-popup">
+          <p class="video-door-popup__text">Tap to open the door</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 2: INVITATION CARD REVEAL            -->
+  <!-- ============================================ -->
+  <section id="invitation-card" class="section section--invitation-card" style="display:none">
+    <div class="invitation" id="invitation">
+      <!-- Corner ornaments -->
+      <div class="invitation__corner invitation__corner--tl"></div>
+      <div class="invitation__corner invitation__corner--tr"></div>
+      <div class="invitation__corner invitation__corner--bl"></div>
+      <div class="invitation__corner invitation__corner--br"></div>
+
+      <!-- Card content -->
+      <div class="invitation__body">
+        <img src="assets/shakti-lotus-correct.png" alt="Veda x Divya Samal presents Shakti - The Sacred Feminine" class="invitation__lotus-logo" />
+
+        <div class="invitation__divider">
+          <img src="assets/divider.png" class="divider-image" alt="Decorative Divider" loading="lazy" />
+        </div>
+
+        <p class="invitation__label" style="font-size:0.8rem; letter-spacing:0.4em; margin-bottom: 0.8rem; color:var(--rust);">YOU ARE INVITED</p>
+
+        <p class="invitation__label">ON THE</p>
+
+        <p class="invitation__date">28th June, 2026</p>
+
+        <p class="invitation__label invitation__label--spaced">FROM</p>
+
+        <p class="invitation__time">10 AM to 7 PM</p>
+
+        <p class="invitation__label invitation__label--spaced">AT</p>
+
+        <p class="invitation__venue">Sabha BLR</p>
+        <p class="invitation__venue-sub">Shivajinagar, Bangalore</p>
+
+        <!-- Bottom divider -->
+        <div class="invitation__divider invitation__divider--bottom">
+          <img src="assets/divider.png" class="divider-image" alt="Decorative Divider" loading="lazy" />
+        </div>
+
+        <p class="invitation__description">
+          We invite you to an immersive showcase where fine jewellery, couture, performance and fragrance come together in celebration of the sacred feminine.
+        </p>
+
+        <p class="invitation__rsvp-label">RSVP REQUESTED</p>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" id="scroll-indicator">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ============================================ -->
+  <!-- SECTION 4: EXPERIENCE HIGHLIGHTS             -->
+  <!-- ============================================ -->
+  <section id="highlights" class="section section--highlights">
+    <!-- Section header -->
+    <div class="highlights__header">
+      <p class="highlights__label">THE DAY</p>
+      <h2 class="highlights__title">What Awaits You</h2>
+      <div class="highlights__divider">
+        <img src="assets/divider.png" class="divider-image" alt="Decorative Divider" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Card 1: Theatrical -->
+    <div class="exp-card" id="exp-theatrical">
+      <p class="exp-card__number-label">01 · PERFORMANCE</p>
+      <h3 class="exp-card__title">Theatrical Presentation</h3>
+      <p class="exp-card__desc">A choreographed unveiling — light, breath and movement woven as a single offering.</p>
+      <div class="exp-card__accent"></div>
+
+    </div>
+
+    <!-- Card 2: Perfume -->
+    <div class="exp-card" id="exp-perfume">
+      <p class="exp-card__number-label">02 · ATELIER</p>
+      <h3 class="exp-card__title">Perfume-Making Atelier</h3>
+      <p class="exp-card__desc">Hand-blended notes of oud, sandal and jasmine — your own scent, sealed in a glass vial.</p>
+      <div class="exp-card__accent"></div>
+
+    </div>
+
+    <!-- Card 3: Jewellery -->
+    <div class="exp-card" id="exp-jewellery">
+      <p class="exp-card__number-label">03 · SHOWCASE</p>
+      <h3 class="exp-card__title">Exclusive Jewellery Showcase</h3>
+      <p class="exp-card__desc">Heirloom pieces from the new collection, presented under candlelight by their makers.</p>
+      <div class="exp-card__accent"></div>
+
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 7: THE SHAKTI STORY                  -->
+  <!-- ============================================ -->
+  <!-- ============================================ -->
+  <!-- SECTION 5: THE COLLECTION — SACRED NARRATIVE -->
+  <!-- ============================================ -->
+  <section id="shakti-story" class="section section--shakti-story">
+    <!-- Section header -->
+    <div class="story__header">
+      <p class="story__label">THE COLLECTION</p>
+      <h2 class="story__title">A Sacred Narrative</h2>
+      <div class="story__divider">
+        <img src="assets/divider.png" class="divider-image" alt="Decorative Divider" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- 2x2 Grid -->
+    <div class="story-grid">
+      <!-- Card 1: Purity -->
+      <div class="story-card" data-theme="purity">
+        <div class="story-card__frame">
+          <!-- Sacred geometry pattern -->
+          <svg class="story-card__geometry" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="0.3"/>
+            <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="0.3"/>
+            <circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" stroke-width="0.3"/>
+            <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="0.3"/>
+            <line x1="100" y1="10" x2="100" y2="190" stroke="currentColor" stroke-width="0.2"/>
+            <line x1="10" y1="100" x2="190" y2="100" stroke="currentColor" stroke-width="0.2"/>
+            <line x1="36" y1="36" x2="164" y2="164" stroke="currentColor" stroke-width="0.2"/>
+            <line x1="164" y1="36" x2="36" y2="164" stroke="currentColor" stroke-width="0.2"/>
+            <line x1="100" y1="10" x2="164" y2="36" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="164" y1="36" x2="190" y2="100" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="190" y1="100" x2="164" y2="164" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="164" y1="164" x2="100" y2="190" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="100" y1="190" x2="36" y2="164" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="36" y1="164" x2="10" y2="100" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="10" y1="100" x2="36" y2="36" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="36" y1="36" x2="100" y2="10" stroke="currentColor" stroke-width="0.15"/>
+          </svg>
+          <div class="story-card__content">
+            <p class="story-card__chapter">CHAPTER 01</p>
+            <h3 class="story-card__theme">Purity</h3>
+            <div class="story-card__accent"></div>
+            <p class="story-card__quote">She is the first light, untouched and unhurried.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Power -->
+      <div class="story-card" data-theme="power">
+        <div class="story-card__frame">
+          <svg class="story-card__geometry" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="0.3"/>
+            <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="0.3"/>
+            <circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" stroke-width="0.3"/>
+            <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="0.3"/>
+            <line x1="100" y1="10" x2="100" y2="190" stroke="currentColor" stroke-width="0.2"/>
+            <line x1="10" y1="100" x2="190" y2="100" stroke="currentColor" stroke-width="0.2"/>
+            <line x1="36" y1="36" x2="164" y2="164" stroke="currentColor" stroke-width="0.2"/>
+            <line x1="164" y1="36" x2="36" y2="164" stroke="currentColor" stroke-width="0.2"/>
+            <line x1="100" y1="10" x2="164" y2="36" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="164" y1="36" x2="190" y2="100" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="190" y1="100" x2="164" y2="164" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="164" y1="164" x2="100" y2="190" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="100" y1="190" x2="36" y2="164" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="36" y1="164" x2="10" y2="100" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="10" y1="100" x2="36" y2="36" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="36" y1="36" x2="100" y2="10" stroke="currentColor" stroke-width="0.15"/>
+          </svg>
+          <div class="story-card__content">
+            <p class="story-card__chapter">CHAPTER 02</p>
+            <h3 class="story-card__theme">Power</h3>
+            <div class="story-card__accent"></div>
+            <p class="story-card__quote">She does not raise her voice. The world quiets to hear her.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Divinity -->
+      <div class="story-card" data-theme="divinity">
+        <div class="story-card__frame">
+          <svg class="story-card__geometry" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="0.3"/>
+            <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="0.3"/>
+            <circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" stroke-width="0.3"/>
+            <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="0.3"/>
+            <line x1="100" y1="10" x2="100" y2="190" stroke="currentColor" stroke-width="0.2"/>
+            <line x1="10" y1="100" x2="190" y2="100" stroke="currentColor" stroke-width="0.2"/>
+            <line x1="36" y1="36" x2="164" y2="164" stroke="currentColor" stroke-width="0.2"/>
+            <line x1="164" y1="36" x2="36" y2="164" stroke="currentColor" stroke-width="0.2"/>
+            <line x1="100" y1="10" x2="164" y2="36" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="164" y1="36" x2="190" y2="100" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="190" y1="100" x2="164" y2="164" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="164" y1="164" x2="100" y2="190" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="100" y1="190" x2="36" y2="164" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="36" y1="164" x2="10" y2="100" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="10" y1="100" x2="36" y2="36" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="36" y1="36" x2="100" y2="10" stroke="currentColor" stroke-width="0.15"/>
+          </svg>
+          <div class="story-card__content">
+            <p class="story-card__chapter">CHAPTER 03</p>
+            <h3 class="story-card__theme">Divinity</h3>
+            <div class="story-card__accent"></div>
+            <p class="story-card__quote">Where her glance falls, the ordinary remembers it was sacred.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Cosmic Feminine -->
+      <div class="story-card" data-theme="cosmic">
+        <div class="story-card__frame">
+          <svg class="story-card__geometry" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="0.3"/>
+            <circle cx="100" cy="100" r="70" fill="none" stroke="currentColor" stroke-width="0.3"/>
+            <circle cx="100" cy="100" r="50" fill="none" stroke="currentColor" stroke-width="0.3"/>
+            <circle cx="100" cy="100" r="30" fill="none" stroke="currentColor" stroke-width="0.3"/>
+            <line x1="100" y1="10" x2="100" y2="190" stroke="currentColor" stroke-width="0.2"/>
+            <line x1="10" y1="100" x2="190" y2="100" stroke="currentColor" stroke-width="0.2"/>
+            <line x1="36" y1="36" x2="164" y2="164" stroke="currentColor" stroke-width="0.2"/>
+            <line x1="164" y1="36" x2="36" y2="164" stroke="currentColor" stroke-width="0.2"/>
+            <line x1="100" y1="10" x2="164" y2="36" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="164" y1="36" x2="190" y2="100" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="190" y1="100" x2="164" y2="164" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="164" y1="164" x2="100" y2="190" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="100" y1="190" x2="36" y2="164" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="36" y1="164" x2="10" y2="100" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="10" y1="100" x2="36" y2="36" stroke="currentColor" stroke-width="0.15"/>
+            <line x1="36" y1="36" x2="100" y2="10" stroke="currentColor" stroke-width="0.15"/>
+          </svg>
+          <div class="story-card__content">
+            <p class="story-card__chapter">CHAPTER 04</p>
+            <h3 class="story-card__theme">Cosmic Feminine</h3>
+            <div class="story-card__accent"></div>
+            <p class="story-card__quote">She holds the stars the way the night holds breath.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 6: THE COLLABORATION                 -->
+  <!-- ============================================ -->
+  <section id="collaboration" class="section section--collaboration">
+    <!-- Section header -->
+    <div class="collab__header">
+      <p class="collab__label-top">THE COLLABORATION</p>
+      <h2 class="collab__title">Thread Meets Stone</h2>
+      <div class="collab__divider">
+        <img src="assets/divider.png" class="divider-image" alt="Decorative Divider" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Two cards side by side -->
+    <div class="collab__grid">
+      <!-- Couture card -->
+      <div class="collab__card collab__card--couture">
+        <img src="assets/divyasamal.png" class="collab__logo" alt="Divya Samal Couture" />
+        <p class="collab__sublabel">COUTURE</p>
+        <p class="collab__name">Divya Samal</p>
+      </div>
+
+      <!-- Jewellery card -->
+      <div class="collab__card collab__card--jewellery">
+        <img src="assets/veda.png" class="collab__logo" alt="Veda Jewellery" />
+        <p class="collab__sublabel">JEWELLERY</p>
+        <p class="collab__name">Veda</p>
+      </div>
+    </div>
+
+    <!-- Quote -->
+    <p class="collab__quote">"Where textile and metal, thread and stone, speak the same sacred language."</p>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 7: RSVP                              -->
+  <!-- ============================================ -->
+  <section id="rsvp" class="section section--rsvp">
+    <div class="rsvp__content">
+      <p class="rsvp__label">WITH GRACE</p>
+      <h2 class="rsvp__title">Will you join us?</h2>
+      <p class="rsvp__subtitle">Seats are few. Each guest is welcomed by name.</p>
+
+      <button class="rsvp__button" id="rsvp-open">
+        <span>RESERVE YOUR PLACE</span>
+      </button>
+
+      <p class="rsvp__deadline">RSVP by 20 June 2026</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <svg class="footer__diamond" viewBox="0 0 12 12" width="10" height="10">
+        <path d="M6 0 L12 6 L6 12 L0 6 Z" fill="#B99874"/>
+      </svg>
+      <p class="footer__brand">VEDA × DIVYA SAMAL</p>
+      <p class="footer__location">Bangalore · MMXXVI</p>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- RSVP FORM (inline, hidden until triggered)   -->
+  <!-- ============================================ -->
+  <div class="rsvp-modal" id="rsvp-modal" style="display:none">
+    <div class="rsvp-modal__overlay"></div>
+    <div class="rsvp-modal__content">
+      <button class="rsvp-modal__close" id="rsvp-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <!-- Header with line accents -->
+      <div class="rsvp-modal__header">
+        <div class="rsvp-modal__header-line"></div>
+        <span class="rsvp-modal__brand">VEDA</span>
+        <div class="rsvp-modal__header-line"></div>
+      </div>
+
+      <h3 class="rsvp-modal__title">Reserve Your Place</h3>
+      <p class="rsvp-modal__desc">A note from you to us — handwritten in spirit.</p>
+
+      <form class="rsvp-form" id="rsvp-form">
+        <div class="rsvp-form__field">
+          <label for="rsvp-name">YOUR NAME</label>
+          <input type="text" id="rsvp-name" name="name" placeholder="Aishwarya" required autocomplete="name" />
+        </div>
+        <div class="rsvp-form__field">
+          <label for="rsvp-phone">PHONE</label>
+          <input type="tel" id="rsvp-phone" name="phone" placeholder="+91" required autocomplete="tel" />
+        </div>
+        <div class="rsvp-form__field">
+          <label for="rsvp-email">EMAIL</label>
+          <input type="email" id="rsvp-email" name="email" placeholder="you@email.com" required autocomplete="email" />
+        </div>
+        <div class="rsvp-form__row">
+          <div class="rsvp-form__field rsvp-form__field--half">
+            <label for="rsvp-guests">GUESTS</label>
+            <input type="number" id="rsvp-guests" name="guests" value="1" min="1" max="5" />
+          </div>
+          <div class="rsvp-form__field rsvp-form__field--half">
+            <label>ATTENDING</label>
+            <input type="text" value="With grace" readonly class="rsvp-form__attending" />
+          </div>
+        </div>
+        <button type="submit" class="rsvp-form__submit" id="rsvp-submit">
+          <span>CONFIRM ATTENDANCE</span>
+        </button>
+      </form>
+
+      <!-- Confirmation (hidden) -->
+      <div class="rsvp-confirmation" id="rsvp-confirmation" style="display:none">
+        <svg class="rsvp-confirmation__lotus" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <g class="confirmation-lotus-layer">
+            <path d="M100 100 Q80 60 100 20 Q120 60 100 100" />
+            <path d="M100 100 Q140 80 180 100 Q140 120 100 100" />
+            <path d="M100 100 Q120 140 100 180 Q80 140 100 100" />
+            <path d="M100 100 Q60 120 20 100 Q60 80 100 100" />
+          </g>
+          <circle cx="100" cy="100" r="8" />
+        </svg>
+        <p class="rsvp-confirmation__text">We look forward to welcoming you.</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

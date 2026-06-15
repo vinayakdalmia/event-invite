@@ -1,0 +1,18 @@
+{
+  "name": "shakti-sacred-feminine",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Shakti: The Sacred Feminine — Digital Ceremonial Invitation",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.3.0"
+  },
+  "dependencies": {
+    "gsap": "^3.12.7"
+  }
+}

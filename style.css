@@ -1,0 +1,1419 @@
+/* =============================================
+   SHAKTI: THE SACRED FEMININE
+   Design System & Complete Styles
+   ============================================= */
+
+/* --- DESIGN TOKENS --- */
+:root {
+  /* Color Palette — exact brand colors */
+  --beige: #FFF8E6;
+  --gold: #B99874;
+  --deep-gold: #896E50;
+  --rust: #8B3F2C;
+  --deep-brown: #482D22;
+
+  /* Derived colors */
+  --beige-dark: #F5EDDA;
+  --beige-warm: #FAF0DC;
+  --gold-light: rgba(185, 152, 116, 0.3);
+  --gold-glow: rgba(185, 152, 116, 0.15);
+  --rust-light: rgba(139, 63, 44, 0.15);
+  --deep-brown-light: rgba(72, 45, 34, 0.6);
+
+  /* Typography */
+  --font-heading: 'Cormorant Garamond', 'Georgia', serif;
+  --font-secondary: 'EB Garamond', 'Georgia', serif;
+  --font-body: 'Lora', 'Georgia', serif;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  --space-3xl: 8rem;
+
+  /* Transitions */
+  --ease-ceremony: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-slow: 1.2s;
+  --duration-medium: 0.8s;
+  --duration-fast: 0.4s;
+}
+
+/* --- RESET & BASE --- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--deep-brown);
+  background-color: var(--beige);
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* Prevent overscroll on iOS */
+body.no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+}
+
+/* --- GRAIN OVERLAY --- */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* --- PARTICLES CANVAS --- */
+#particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* --- AUDIO TOGGLE --- */
+.audio-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 248, 230, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--gold-light);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-fast) var(--ease-ceremony);
+}
+
+.audio-toggle:hover {
+  background: rgba(255, 248, 230, 0.9);
+  border-color: var(--gold);
+}
+
+.audio-toggle.is-playing {
+  border-color: var(--gold);
+  box-shadow: 0 0 20px var(--gold-glow);
+}
+
+.audio-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--deep-gold);
+}
+
+/* --- SECTIONS --- */
+.section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* =============================================
+   SECTION 1: ARRIVAL
+   ============================================= */
+.section--arrival {
+  background: var(--beige);
+  overflow: hidden;
+}
+
+.arrival__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+}
+
+/* Video Wrapper (Full Screen) */
+.arrival-video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  z-index: 10;
+  background: var(--beige);
+}
+
+.arrival-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none; /* Let the wrapper handle clicks */
+}
+
+/* Door Pop-up */
+.video-door-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 248, 230, 0.9);
+  padding: 1.5rem 2.5rem;
+  border-radius: 40px;
+  border: 1px solid var(--gold-light);
+  box-shadow: 0 10px 30px rgba(72, 45, 34, 0.2);
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-ceremony);
+  backdrop-filter: blur(5px);
+}
+
+.video-door-popup--visible {
+  opacity: 1;
+  pointer-events: auto;
+  animation: pulse-glow 2s infinite alternate;
+}
+
+.video-door-popup__text {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin: 0;
+  text-align: center;
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 4px 20px rgba(185, 152, 116, 0.2); }
+  100% { box-shadow: 0 4px 35px rgba(185, 152, 116, 0.6); }
+}
+
+/* =============================================
+   SECTION 2: INVITATION CARD REVEAL
+   ============================================= */
+.section--invitation-card {
+  background: var(--beige);
+  overflow: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 1.5rem;
+}
+
+.invitation {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  min-height: 80vh;
+  min-height: 80dvh;
+  background: linear-gradient(
+    180deg,
+    #F0E4D0 0%,
+    #F8F0E2 8%,
+    #FFF8E6 20%,
+    #FFF8E6 80%,
+    #F8F0E2 92%,
+    #F0E4D0 100%
+  );
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  justify-content: center;
+  box-shadow:
+    0 8px 60px rgba(72, 45, 34, 0.1),
+    0 2px 20px rgba(72, 45, 34, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Gold corner ornaments */
+.invitation__corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  opacity: 0.5;
+}
+
+.invitation__corner::before,
+.invitation__corner::after {
+  content: '';
+  position: absolute;
+  background: var(--gold);
+}
+
+.invitation__corner--tl { top: 14px; left: 14px; }
+.invitation__corner--tl::before { top: 0; left: 0; width: 1px; height: 100%; }
+.invitation__corner--tl::after { top: 0; left: 0; width: 100%; height: 1px; }
+
+.invitation__corner--tr { top: 14px; right: 14px; }
+.invitation__corner--tr::before { top: 0; right: 0; width: 1px; height: 100%; }
+.invitation__corner--tr::after { top: 0; right: 0; width: 100%; height: 1px; }
+
+.invitation__corner--bl { bottom: 14px; left: 14px; }
+.invitation__corner--bl::before { bottom: 0; left: 0; width: 1px; height: 100%; }
+.invitation__corner--bl::after { bottom: 0; left: 0; width: 100%; height: 1px; }
+
+.invitation__corner--br { bottom: 14px; right: 14px; }
+.invitation__corner--br::before { bottom: 0; right: 0; width: 1px; height: 100%; }
+.invitation__corner--br::after { bottom: 0; right: 0; width: 100%; height: 1px; }
+
+/* Card body */
+.invitation__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* Labels (YOU ARE INVITED TO, ON THE, FROM, AT) */
+.invitation__label {
+  font-family: var(--font-body);
+  font-size: 0.55rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.2rem;
+  font-weight: 400;
+}
+
+.invitation__label--spaced {
+  margin-top: 1rem;
+}
+
+/* Main Lotus Logo */
+.invitation__lotus-logo {
+  width: 90%;
+  max-width: 280px;
+  height: auto;
+  margin-top: -5.5rem;
+  margin-bottom: -4rem;
+  mix-blend-mode: multiply; /* Removes the white background from the JPG */
+}
+
+/* Diamond divider */
+.invitation__divider {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 70%;
+  margin-bottom: 1rem;
+}
+
+.invitation__divider--bottom {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.invitation__divider-line {
+  flex: 1;
+  height: 0.5px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+.invitation__diamond {
+  flex-shrink: 0;
+}
+
+/* Date */
+.invitation__date {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--deep-brown);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.invitation__date-sub {
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+}
+
+/* Time */
+.invitation__time {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--deep-brown);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.invitation__time-sub {
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+}
+
+/* Venue */
+.invitation__venue {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--deep-brown);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.invitation__venue-sub {
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+}
+
+/* Description */
+.invitation__description {
+  font-family: var(--font-secondary);
+  font-size: 0.75rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--deep-brown);
+  letter-spacing: 0.02em;
+  max-width: 280px;
+  opacity: 0.8;
+}
+
+/* RSVP label */
+.invitation__rsvp-label {
+  font-family: var(--font-body);
+  font-size: 0.55rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 1rem;
+  font-weight: 400;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold);
+  opacity: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+/* =============================================
+   SECTION 4: OPENING NARRATIVE
+   ============================================= */
+.section--narrative {
+  background: var(--beige);
+  padding: var(--space-xl) var(--space-md);
+  min-height: auto;
+}
+
+.narrative__line {
+  width: 100%;
+  min-height: 70vh;
+  min-height: 70dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.narrative__line p {
+  font-family: var(--font-secondary);
+  font-size: 1.4rem;
+  font-style: italic;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--deep-brown);
+  letter-spacing: 0.04em;
+  max-width: 300px;
+  opacity: 0;
+}
+
+.narrative__line h2 {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: var(--rust);
+  text-transform: uppercase;
+  opacity: 0;
+}
+
+/* =============================================
+   SECTION 5: EVENT DETAILS
+   ============================================= */
+.section--event-details {
+  background: var(--beige);
+  padding: var(--space-xl) var(--space-md);
+  min-height: auto;
+}
+
+.event-card {
+  max-width: 340px;
+  width: 100%;
+  padding: var(--space-xl) var(--space-lg);
+  background: linear-gradient(135deg, rgba(255, 248, 230, 0.9), rgba(245, 237, 218, 0.9));
+  border: 0.5px solid var(--gold-light);
+  border-radius: 2px;
+  text-align: center;
+  position: relative;
+  box-shadow:
+    0 4px 30px rgba(72, 45, 34, 0.06),
+    0 1px 3px rgba(72, 45, 34, 0.04);
+  opacity: 0;
+}
+
+/* Corner ornamental dots */
+.event-card::before,
+.event-card::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.4;
+}
+
+.event-card::before { top: 12px; left: 12px; }
+.event-card::after { top: 12px; right: 12px; }
+
+.event-card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.event-card__date {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--deep-brown);
+}
+
+.event-card__time {
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  color: var(--deep-gold);
+}
+
+.event-card__venue {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--deep-brown);
+  margin-top: var(--space-xs);
+}
+
+.event-card__address {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--deep-gold);
+}
+
+/* Ornamental SVG dividers */
+.ornament {
+  width: 160px;
+  height: 24px;
+  display: block;
+  margin: var(--space-sm) auto;
+}
+
+.ornament line,
+.ornament path,
+.ornament circle {
+  stroke: var(--gold);
+  fill: var(--gold);
+}
+
+.ornament path[fill="none"] {
+  fill: none;
+}
+
+.ornament--small {
+  width: 100px;
+  height: 10px;
+}
+
+.ornament--small line,
+.ornament--small path {
+  stroke: var(--gold);
+}
+
+.event-details__description {
+  max-width: 340px;
+  margin-top: var(--space-xl);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.9;
+  text-align: center;
+  color: var(--deep-gold);
+  letter-spacing: 0.03em;
+  opacity: 0;
+}
+
+/* =============================================
+   SECTION 4: EXPERIENCE HIGHLIGHTS (Editorial)
+   ============================================= */
+.section--highlights {
+  background: var(--beige);
+  padding: var(--space-xl) var(--space-md);
+  min-height: auto;
+  gap: var(--space-lg);
+}
+
+/* Section header */
+.highlights__header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  opacity: 0;
+}
+
+.highlights__label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.highlights__title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--deep-brown);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.highlights__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.highlights__divider-line {
+  width: 40px;
+  height: 0.5px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+/* Experience cards */
+.exp-card {
+  max-width: 360px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    #F5EDDA 0%,
+    #FAF2E2 30%,
+    #FFF8E6 70%,
+    #F8F0DC 100%
+  );
+  border: 0.5px solid rgba(185, 152, 116, 0.25);
+  border-radius: 4px;
+  padding: 2rem 1.8rem 2.2rem;
+  box-shadow:
+    0 2px 20px rgba(72, 45, 34, 0.04),
+    0 1px 4px rgba(72, 45, 34, 0.03);
+  opacity: 0;
+  transform: translateY(25px);
+}
+
+.exp-card__number-label {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.exp-card__title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--deep-brown);
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.exp-card__desc {
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--deep-gold);
+  letter-spacing: 0.02em;
+  max-width: 280px;
+}
+
+.exp-card__accent {
+  width: 32px;
+  height: 2px;
+  background: var(--rust);
+  opacity: 0.5;
+  margin-top: 1.2rem;
+}
+
+
+
+/* =============================================
+   SECTION 5: SACRED NARRATIVE (2×2 Grid)
+   ============================================= */
+.section--shakti-story {
+  background: var(--beige);
+  padding: var(--space-xl) var(--space-md);
+  min-height: auto;
+  gap: var(--space-lg);
+}
+
+/* Section header */
+.story__header {
+  text-align: center;
+  margin-bottom: var(--space-md);
+  opacity: 0;
+}
+
+.story__label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.story__title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--deep-brown);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.story__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.story__divider-line {
+  width: 40px;
+  height: 0.5px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+/* 2×2 Grid */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  max-width: 380px;
+  width: 100%;
+}
+
+/* Individual cards */
+.story-card {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.story-card__frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 0.5px solid rgba(185, 152, 116, 0.15);
+  aspect-ratio: 3 / 4.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Sacred geometry — positioned top-right, clipped */
+.story-card__geometry {
+  position: absolute;
+  top: -30%;
+  right: -30%;
+  width: 110%;
+  height: auto;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* Card content */
+.story-card__content {
+  position: relative;
+  z-index: 1;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.story-card__chapter {
+  font-family: var(--font-body);
+  font-size: 0.5rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.story-card__theme {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  margin-bottom: 0.6rem;
+}
+
+.story-card__accent {
+  width: 24px;
+  height: 1px;
+  margin-bottom: 0.8rem;
+}
+
+.story-card__quote {
+  font-family: var(--font-secondary);
+  font-size: 0.7rem;
+  font-style: italic;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+/* Theme: Purity — ivory/cream */
+.story-card[data-theme="purity"] .story-card__frame {
+  background: linear-gradient(180deg, #F5EDDA 0%, #FFF8E6 40%, #FAF0DC 100%);
+}
+.story-card[data-theme="purity"] .story-card__geometry { color: var(--deep-gold); opacity: 0.08; }
+.story-card[data-theme="purity"] .story-card__chapter { color: var(--gold); }
+.story-card[data-theme="purity"] .story-card__theme { color: var(--deep-gold); }
+.story-card[data-theme="purity"] .story-card__accent { background: var(--gold); opacity: 0.3; }
+.story-card[data-theme="purity"] .story-card__quote { color: var(--deep-gold); }
+
+/* Theme: Power — deep rust gradient */
+.story-card[data-theme="power"] .story-card__frame {
+  background: linear-gradient(180deg, #A8564A 0%, #8B3F2C 40%, #6E2F20 100%);
+}
+.story-card[data-theme="power"] .story-card__geometry { color: #F5EDDA; opacity: 0.1; }
+.story-card[data-theme="power"] .story-card__chapter { color: rgba(255, 248, 230, 0.6); }
+.story-card[data-theme="power"] .story-card__theme { color: #FFF8E6; }
+.story-card[data-theme="power"] .story-card__accent { background: rgba(255, 248, 230, 0.3); }
+.story-card[data-theme="power"] .story-card__quote { color: rgba(255, 248, 230, 0.8); }
+
+/* Theme: Divinity — warm gold gradient */
+.story-card[data-theme="divinity"] .story-card__frame {
+  background: linear-gradient(180deg, #C9A97A 0%, #B99874 40%, #A8875E 100%);
+}
+.story-card[data-theme="divinity"] .story-card__geometry { color: var(--deep-brown); opacity: 0.1; }
+.story-card[data-theme="divinity"] .story-card__chapter { color: rgba(72, 45, 34, 0.5); }
+.story-card[data-theme="divinity"] .story-card__theme { color: var(--deep-brown); }
+.story-card[data-theme="divinity"] .story-card__accent { background: rgba(72, 45, 34, 0.25); }
+.story-card[data-theme="divinity"] .story-card__quote { color: rgba(72, 45, 34, 0.75); }
+
+/* Theme: Cosmic — dark forest/teal */
+.story-card[data-theme="cosmic"] .story-card__frame {
+  background: linear-gradient(180deg, #4A5D4F 0%, #3B4D40 40%, #2C3E31 100%);
+}
+.story-card[data-theme="cosmic"] .story-card__geometry { color: rgba(255, 248, 230, 0.6); opacity: 0.08; }
+.story-card[data-theme="cosmic"] .story-card__chapter { color: rgba(255, 248, 230, 0.5); }
+.story-card[data-theme="cosmic"] .story-card__theme { color: #F5EDDA; }
+.story-card[data-theme="cosmic"] .story-card__accent { background: rgba(255, 248, 230, 0.25); }
+.story-card[data-theme="cosmic"] .story-card__quote { color: rgba(255, 248, 230, 0.75); }
+
+/* =============================================
+   SECTION 6: THE COLLABORATION
+   ============================================= */
+.section--collaboration {
+  background: var(--beige);
+  padding: var(--space-xl) var(--space-md);
+  min-height: auto;
+  gap: var(--space-lg);
+}
+
+.collab__header {
+  text-align: center;
+  margin-bottom: var(--space-sm);
+  opacity: 0;
+}
+
+.collab__label-top {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.collab__title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--deep-brown);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.collab__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.collab__divider-line {
+  width: 40px;
+  height: 0.5px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+/* Two cards side by side */
+.collab__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  max-width: 380px;
+  width: 100%;
+}
+
+.collab__card {
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem 1.2rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.collab__card--couture {
+  background: linear-gradient(180deg, #E8D5C5 0%, #D9C4B0 100%);
+}
+
+.collab__card--jewellery {
+  background: linear-gradient(180deg, #E8DDCC 0%, #D5C8B0 100%);
+}
+
+.collab__logo {
+  width: 80%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.divider-image {
+  display: block;
+  width: 75%;
+  max-width: 185px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.collab__sublabel {
+  font-family: var(--font-body);
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--deep-gold);
+  margin-bottom: 0.3rem;
+}
+
+.collab__name {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--deep-brown);
+  letter-spacing: 0.04em;
+}
+
+.collab__quote {
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--deep-brown);
+  letter-spacing: 0.02em;
+  text-align: center;
+  max-width: 320px;
+  opacity: 0;
+}
+
+/* =============================================
+   SECTION 7: RSVP
+   ============================================= */
+.section--rsvp {
+  background: var(--beige);
+  padding: var(--space-xl) var(--space-md);
+  min-height: auto;
+  justify-content: space-between;
+}
+
+.rsvp__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-md);
+  flex: 1;
+  justify-content: center;
+}
+
+.rsvp__label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.rsvp__title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--deep-brown);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.rsvp__subtitle {
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--deep-gold);
+  letter-spacing: 0.03em;
+  max-width: 280px;
+}
+
+.rsvp__button {
+  padding: 1rem 2.5rem;
+  background: var(--rust);
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #FFF8E6;
+  margin-top: var(--space-sm);
+  transition: all var(--duration-fast) var(--ease-ceremony);
+  cursor: pointer;
+}
+
+.rsvp__button:active {
+  transform: scale(0.98);
+  background: #7A3525;
+}
+
+.rsvp__button span {
+  position: relative;
+  z-index: 1;
+}
+
+.rsvp__deadline {
+  font-family: var(--font-secondary);
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-top: var(--space-xs);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: var(--space-xl) 0 var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer__diamond {
+  margin-bottom: 0.3rem;
+}
+
+.footer__brand {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--deep-brown);
+  text-transform: uppercase;
+}
+
+.footer__location {
+  font-family: var(--font-secondary);
+  font-size: 0.75rem;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+
+/* =============================================
+   RSVP MODAL
+   ============================================= */
+.rsvp-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+}
+
+.rsvp-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(72, 45, 34, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.rsvp-modal__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 90vh;
+  max-height: 90dvh;
+  overflow-y: auto;
+  background: linear-gradient(180deg, var(--beige) 0%, #F5EDDA 100%);
+  border-radius: 16px 16px 0 0;
+  padding: var(--space-lg) var(--space-md) var(--space-xl);
+  transform: translateY(100%);
+  box-shadow: 0 -10px 60px rgba(72, 45, 34, 0.15);
+}
+
+.rsvp-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--deep-gold);
+  transition: color var(--duration-fast) var(--ease-ceremony);
+}
+
+.rsvp-modal__close svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Modal header with line accents */
+.rsvp-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.rsvp-modal__header-line {
+  width: 40px;
+  height: 0.5px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+.rsvp-modal__brand {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  color: var(--rust);
+  text-transform: uppercase;
+}
+
+.rsvp-modal__title {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--deep-brown);
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+
+.rsvp-modal__desc {
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  letter-spacing: 0.03em;
+}
+
+/* Form */
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.rsvp-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.rsvp-form__field--half {
+  flex: 1;
+}
+
+.rsvp-form__row {
+  display: flex;
+  gap: 1rem;
+}
+
+.rsvp-form__field label {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--deep-gold);
+}
+
+.rsvp-form__field input {
+  width: 100%;
+  padding: 0.8rem 0;
+  border: none;
+  border-bottom: 0.5px solid var(--gold-light);
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--deep-brown);
+  outline: none;
+  transition: border-color var(--duration-fast) var(--ease-ceremony);
+  -webkit-appearance: none;
+}
+
+.rsvp-form__field input:focus {
+  border-bottom-color: var(--gold);
+}
+
+.rsvp-form__field input::placeholder {
+  color: rgba(185, 152, 116, 0.5);
+  font-family: var(--font-heading);
+  font-weight: 300;
+}
+
+.rsvp-form__attending {
+  cursor: default;
+}
+
+/* Submit */
+.rsvp-form__submit {
+  margin-top: var(--space-md);
+  padding: 1.1rem 2rem;
+  border: none;
+  background: var(--rust);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #FFF8E6;
+  transition: all var(--duration-fast) var(--ease-ceremony);
+  cursor: pointer;
+}
+
+.rsvp-form__submit:active {
+  transform: scale(0.98);
+  background: #7A3525;
+}
+
+.rsvp-form__submit span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Confirmation */
+.rsvp-confirmation {
+  text-align: center;
+  padding: var(--space-xl) 0;
+}
+
+.rsvp-confirmation__lotus {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto var(--space-lg);
+}
+
+.rsvp-confirmation__lotus path {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1;
+}
+
+.rsvp-confirmation__lotus circle {
+  fill: var(--rust);
+}
+
+.rsvp-confirmation__text {
+  font-family: var(--font-secondary);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--deep-brown);
+  letter-spacing: 0.05em;
+}
+
+/* =============================================
+   REDUCED MOTION
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =============================================
+   DESKTOP ADAPTATION
+   ============================================= */
+@media (min-width: 768px) {
+  .section {
+    padding-left: var(--space-xl);
+    padding-right: var(--space-xl);
+  }
+
+  .envelope {
+    width: 340px;
+    height: 240px;
+  }
+
+  .wax-seal {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section {
+    max-width: 600px;
+  }
+
+  .grain-overlay,
+  #particles-canvas {
+    max-width: 100%;
+  }
+}
+
