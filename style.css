@@ -733,7 +733,7 @@ h1, h2, h3, h4, h5 {
   padding: 3rem 2rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(72, 45, 34, 0.04);
 }
@@ -743,7 +743,7 @@ h1, h2, h3, h4, h5 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  justify-content: center;
+  justify-content: flex-start;
   aspect-ratio: 1.4; /* Adjusted slightly based on the new image proportions */
 }
 
@@ -798,9 +798,9 @@ h1, h2, h3, h4, h5 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  max-width: 100%;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 58%;
 }
 
 .atelier-card__label {
@@ -811,7 +811,6 @@ h1, h2, h3, h4, h5 {
   font-weight: 500;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.4rem;
 }
 
@@ -824,24 +823,22 @@ h1, h2, h3, h4, h5 {
   margin-top: 0.4rem;
   margin-bottom: 1.5rem;
   opacity: 0.5;
-  display: flex;
-  justify-content: center;
 }
 
 .atelier-card__title {
   font-family: var(--font-heading);
-  font-size: 2.2rem;
+  font-size: 1.6rem;
   font-weight: 300;
   color: var(--rust);
-  line-height: 1.15;
-  margin-bottom: 1rem;
+  line-height: 1.25;
+  margin-bottom: 0.8rem;
 }
 
 .atelier-card__desc {
   font-family: var(--font-secondary);
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-style: italic;
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--rust);
   opacity: 0.85;
 }
@@ -919,14 +916,19 @@ h1, h2, h3, h4, h5 {
 
 /* Adjust layout for smaller screens */
 @media (max-width: 768px) {
-  .atelier-card {
+  .atelier-card,
+  .atelier-card--theatrical,
+  .atelier-card--perfume,
+  .atelier-card--jewellery {
     flex-direction: column;
     padding: 2.5rem 1.5rem;
     gap: 2.5rem;
+    aspect-ratio: auto;
+    min-height: 280px;
   }
   .atelier-card__content {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
     max-width: 100%;
   }
   .atelier-card__notes-column {
