@@ -377,8 +377,8 @@ h1, h2, h3, h4, h5 {
   width: 90%;
   max-width: 280px;
   height: auto;
-  margin-top: -5.5rem;
-  margin-bottom: -4rem;
+  margin-top: -3rem;
+  margin-bottom: 1.5rem;
   mix-blend-mode: multiply; /* Removes the white background from the JPG */
 }
 
