@@ -27,8 +27,8 @@
   <!-- Floating particles canvas -->
   <canvas id="particles-canvas" aria-hidden="true"></canvas>
 
-  <!-- Background Audio -->
-  <audio id="background-audio" src="assets/audio.mp4" loop preload="auto"></audio>
+  <!-- Background Audio (using a hidden video tag ensures .mp4 files play perfectly on Android) -->
+  <video id="background-audio" src="assets/audio.mp4" loop playsinline preload="auto" style="display:none;"></video>
 
   <!-- ============================================ -->
   <!-- SECTION 1: ARRIVAL                           -->

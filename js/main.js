@@ -32,8 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (bgAudio) {
       // Force audio to start from 0:00 as requested
       bgAudio.currentTime = 0;
-      bgAudio.play().catch(e => console.log('Audio autoplay prevented:', e));
-      audioPlayed = true;
+      const playPromise = bgAudio.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          audioPlayed = true;
+        }).catch(e => {
+          console.log('Audio autoplay prevented:', e);
+          audioPlayed = false; // Allow retry on the next event (e.g. click after touchstart)
+        });
+      }
     }
   };
   
