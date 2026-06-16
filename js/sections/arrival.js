@@ -90,15 +90,17 @@ export function initArrival({ onEnvelopeOpened }) {
     }
   });
 
-  // Force video to start from the beginning, fixing iOS caching issues
+  // Ensure video resets to the start (handles iOS back-forward cache)
   video.currentTime = 0;
-  video.load();
   
-  // Attempt to play the video (browsers require muted for autoplay)
-  video.play().catch(e => {
-    // If autoplay is blocked entirely, we can just show the popup immediately
-    popup.classList.add('video-door-popup--visible');
-  });
+  // If HTML autoplay fails or is blocked, ensure we play or show popup
+  setTimeout(() => {
+    if (video.paused && !hasPausedForDoor) {
+      video.play().catch(e => {
+        popup.classList.add('video-door-popup--visible');
+      });
+    }
+  }, 150);
 }
 
 function createGoldBurst(rect) {
