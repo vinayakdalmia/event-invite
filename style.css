@@ -1617,9 +1617,10 @@ h1, h2, h3, h4, h5 {
     overflow: hidden;
   }
 
-  /* Widen the Invitation Envelope Card slightly */
+  /* Widen the Invitation Envelope Card to fit desktop space */
   .invitation {
-    max-width: 500px;
+    max-width: 100%;
+    width: 100%;
     padding: var(--space-xxl);
   }
 
