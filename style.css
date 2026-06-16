@@ -1621,7 +1621,7 @@ h1, h2, h3, h4, h5 {
   .invitation {
     max-width: 100%;
     width: 100%;
-    padding: var(--space-xxl);
+    padding: var(--space-2xl);
   }
 
   /* Atelier Cards: 3-column Grid Layout */
@@ -1638,4 +1638,3 @@ h1, h2, h3, h4, h5 {
     margin-bottom: 0;
   }
 }
-
