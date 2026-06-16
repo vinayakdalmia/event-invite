@@ -101,16 +101,11 @@
           We invite you to an immersive showcase where fine jewellery, couture, performance and fragrance come together in celebration of the sacred feminine.
         </p>
 
-        <p class="invitation__rsvp-label">RSVP REQUESTED</p>
+        <button id="rsvp-open-top" class="invitation__rsvp-label">RESERVE YOUR PLACE</button>
       </div>
     </div>
 
-    <!-- Scroll indicator -->
-    <div class="scroll-indicator" id="scroll-indicator">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-        <path d="M12 5v14M5 12l7 7 7-7"/>
-      </svg>
-    </div>
+
   </section>
 
 
@@ -120,8 +115,8 @@
   <section id="highlights" class="section section--highlights">
     <!-- Section header -->
     <div class="highlights__header">
-      <p class="highlights__label">THE DAY</p>
-      <h2 class="highlights__title">What Awaits You</h2>
+      <p class="highlights__label">THE EXPERIENCE</p>
+      <h2 class="highlights__title">That Awaits You</h2>
       <div class="highlights__divider">
         <img src="assets/divider-light.png" class="divider-image" alt="Decorative Divider" loading="lazy" />
       </div>
@@ -148,15 +143,15 @@
       <!-- Card 2: Perfume-Making Atelier -->
       <div class="atelier-card atelier-card--perfume">
         <div class="atelier-card__content">
-          <p class="atelier-card__label">02 <span class="atelier-card__dot">·</span> ATELIER</p>
+          <p class="atelier-card__label">02 <span class="atelier-card__dot">·</span> EXPERIENCE</p>
           <div class="atelier-card__label-line">
             <svg viewBox="0 0 40 10" width="40" height="10">
               <line x1="0" y1="5" x2="40" y2="5" stroke="currentColor" stroke-width="0.5"/>
               <circle cx="20" cy="5" r="2" fill="none" stroke="currentColor" stroke-width="0.5"/>
             </svg>
           </div>
-          <h3 class="atelier-card__title">Perfume-Making<br>Atelier</h3>
-          <p class="atelier-card__desc">Hand-blended notes of oud,<br>sandal and jasmine — your<br>own scent, sealed in a<br>glass vial.</p>
+          <h3 class="atelier-card__title">Fragrance<br>Experience</h3>
+          <p class="atelier-card__desc">Experience the world of<br>handcrafted fragrances<br>rooted in memory and ritual.</p>
         </div>
       </div>
 
@@ -198,21 +193,28 @@
 
       <!-- Two logos side by side with × separator -->
       <div class="collab__grid">
-        <!-- Couture logo link -->
-        <a href="https://labeldivyasamal.com" target="_blank" rel="noopener noreferrer" class="collab__logo-link">
-          <img src="assets/divyasamal.png" class="collab__logo" alt="Divya Samal Couture" />
-        </a>
-
-        <div class="collab__separator">×</div>
-
         <!-- Jewellery logo link -->
         <a href="https://vedajewel.co" target="_blank" rel="noopener noreferrer" class="collab__logo-link">
           <img src="assets/veda.png" class="collab__logo" alt="Veda Jewellery" />
         </a>
+
+        <div class="collab__separator">×</div>
+
+        <!-- Couture logo link -->
+        <a href="https://labeldivyasamal.com" target="_blank" rel="noopener noreferrer" class="collab__logo-link">
+          <img src="assets/divyasamal.png" class="collab__logo" alt="Divya Samal Couture" />
+        </a>
       </div>
 
-      <!-- Quote -->
-      <p class="collab__quote">"Where textile and metal, thread and stone, speak the same sacred language."</p>
+      <!-- Gifting Partner -->
+      <div class="collab__gifting">
+        <div class="collab__divider-text">Gifting Partner</div>
+        <a href="https://www.smritiperfumes.com" target="_blank" rel="noopener noreferrer" class="collab__logo-link">
+          <img src="assets/smriti.png" class="collab__logo collab__logo--gifting" alt="Smriti" />
+        </a>
+      </div>
+
+
     </div>
   </section>
 
@@ -229,7 +231,6 @@
         <span>RESERVE YOUR PLACE</span>
       </button>
 
-      <p class="rsvp__deadline">RSVP</p>
     </div>
   </section>
 
@@ -254,7 +255,7 @@
       </div>
 
       <h3 class="rsvp-modal__title">Reserve Your Place</h3>
-      <p class="rsvp-modal__desc">A note from you to us — handwritten in spirit.</p>
+
 
       <form class="rsvp-form" id="rsvp-form">
         <div class="rsvp-form__field">

@@ -6,7 +6,7 @@
 import { gsap } from 'gsap';
 
 export function initRsvp() {
-  const openBtn = document.getElementById('rsvp-open');
+  const openBtns = document.querySelectorAll('#rsvp-open, #rsvp-open-top');
   const modal = document.getElementById('rsvp-modal');
   const closeBtn = document.getElementById('rsvp-close');
   const form = document.getElementById('rsvp-form');
@@ -14,7 +14,7 @@ export function initRsvp() {
   const overlay = modal?.querySelector('.rsvp-modal__overlay');
   const content = modal?.querySelector('.rsvp-modal__content');
 
-  if (!openBtn || !modal) return;
+  if (openBtns.length === 0 || !modal) return;
 
   // Guest stepper
   const guestCount = document.getElementById('guest-count');
@@ -48,19 +48,21 @@ export function initRsvp() {
   });
 
   // Open modal
-  openBtn.addEventListener('click', () => {
-    modal.style.display = '';
-    document.body.classList.add('no-scroll');
+  openBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      modal.style.display = '';
+      document.body.classList.add('no-scroll');
 
-    gsap.fromTo(overlay,
-      { opacity: 0 },
-      { opacity: 1, duration: 0.4, ease: 'power2.out' }
-    );
+      gsap.fromTo(overlay,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.4, ease: 'power2.out' }
+      );
 
-    gsap.fromTo(content,
-      { y: '100%' },
-      { y: '0%', duration: 0.6, ease: 'power2.out', delay: 0.1 }
-    );
+      gsap.fromTo(content,
+        { y: '100%' },
+        { y: '0%', duration: 0.6, ease: 'power2.out', delay: 0.1 }
+      );
+    });
   });
 
   // Close modal

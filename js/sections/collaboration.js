@@ -75,6 +75,21 @@ export function initCollaboration() {
     );
   }
 
+  // 4.5. Fade in gifting
+  const gifting = document.querySelector('.collab__gifting');
+  if (gifting) {
+    tl.fromTo(gifting,
+      { opacity: 0, y: 15 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+      },
+      '-=0.4'
+    );
+  }
+
   // 5. Fade in bottom quote
   if (quote) {
     tl.fromTo(quote,
