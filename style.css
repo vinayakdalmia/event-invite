@@ -668,15 +668,15 @@ h1, h2, h3, h4, h5 {
    ============================================= */
 .section--highlights {
   background: var(--beige);
-  padding: var(--space-xl) var(--space-md);
+  padding: 2rem var(--space-md) 1.5rem;
   min-height: auto;
-  gap: var(--space-lg);
+  gap: 1.2rem;
 }
 
 /* Section header */
 .highlights__header {
   text-align: center;
-  margin-bottom: var(--space-lg);
+  margin-bottom: 0.8rem;
   opacity: 0;
 }
 
