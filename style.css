@@ -756,28 +756,22 @@ h1, h2, h3, h4, h5 {
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(72, 45, 34, 0.04);
   aspect-ratio: 1.4;
+  background-size: 96% 96%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .atelier-card--theatrical {
   background-image: url('assets/images/theatrical.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   justify-content: flex-start;
 }
 
 .atelier-card--perfume {
   background-image: url('assets/perfume.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .atelier-card--jewellery {
   background-image: url('assets/jeweller.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 /* The delicate border with corner ornaments */
@@ -956,9 +950,38 @@ h1, h2, h3, h4, h5 {
    ============================================= */
 .section--collaboration {
   background: transparent;
-  padding: 2rem var(--space-md) 2rem;
+  padding: 2rem 1.5rem;
   min-height: auto;
+}
+
+.collab-card {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  background: linear-gradient(
+    180deg,
+    #F0E4D0 0%,
+    #F8F0E2 8%,
+    #FFF8E6 20%,
+    #FFF8E6 80%,
+    #F8F0E2 92%,
+    #F0E4D0 100%
+  );
+  border-radius: 12px;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  justify-content: center;
+  box-shadow:
+    0 8px 60px rgba(72, 45, 34, 0.1),
+    0 2px 20px rgba(72, 45, 34, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  transform: translateY(40px);
   gap: 1.2rem;
+  margin: 0 auto;
 }
 
 .collab__header {
@@ -981,7 +1004,7 @@ h1, h2, h3, h4, h5 {
   font-size: 2.2rem;
   font-weight: 300;
   font-style: italic;
-  color: var(--cream);
+  color: var(--rust);
   letter-spacing: 0.04em;
   line-height: 1.2;
 }
@@ -1031,7 +1054,7 @@ h1, h2, h3, h4, h5 {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 300;
-  color: var(--gold);
+  color: var(--deep-gold);
   opacity: 0;
   user-select: none;
   margin: 0 0.5rem;
@@ -1042,7 +1065,7 @@ h1, h2, h3, h4, h5 {
   font-family: var(--font-secondary);
   font-size: 0.95rem;
   font-style: italic;
-  color: var(--gold);
+  color: var(--deep-gold);
   margin-top: 0.5rem;
   margin-bottom: 0.2rem;
   letter-spacing: 0.05em;
@@ -1078,7 +1101,7 @@ h1, h2, h3, h4, h5 {
   font-family: var(--font-heading);
   font-size: 1.3rem;
   font-weight: 400;
-  color: var(--cream);
+  color: var(--deep-brown);
   letter-spacing: 0.04em;
 }
 
@@ -1087,7 +1110,7 @@ h1, h2, h3, h4, h5 {
   font-size: 0.9rem;
   font-style: italic;
   line-height: 1.8;
-  color: var(--cream);
+  color: var(--deep-brown);
   letter-spacing: 0.02em;
   text-align: center;
   max-width: 320px;
