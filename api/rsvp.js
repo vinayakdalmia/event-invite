@@ -5,8 +5,8 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Method Not Allowed' });
   }
 
-  // Handle the typo DABASE_URL or standard DATABASE_URL
-  const connectionString = process.env.DATABASE_URL || process.env.DABASE_URL;
+  // Get standard DATABASE_URL
+  const connectionString = process.env.DATABASE_URL;
 
   if (!connectionString) {
     console.error("Database URL is not configured in environment variables.");

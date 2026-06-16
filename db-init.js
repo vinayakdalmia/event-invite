@@ -1,6 +1,12 @@
+import 'dotenv/config'; // Make sure to install dotenv or run with --env-file
 import { Client } from 'pg';
 
-const connectionString = 'postgresql://neondb_owner:npg_en0fNFmpIUw6@ep-wild-block-aik1cgr6-pooler.c-4.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require';
+const connectionString = process.env.DATABASE_URL;
+
+if (!connectionString) {
+  console.error("Please set DATABASE_URL in your environment variables.");
+  process.exit(1);
+}
 
 const client = new Client({
   connectionString: connectionString,
