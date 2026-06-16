@@ -13,7 +13,6 @@ import { initHighlights } from './sections/highlights.js';
 import { initShaktiStory } from './sections/shakti-story.js';
 import { initCollaboration } from './sections/collaboration.js';
 import { initRsvp } from './sections/rsvp.js';
-import { initAudio } from './audio.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,8 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize background effects
   initParticles();
 
-  // Initialize audio toggle
-  initAudio();
+  // Play background audio on first interaction
+  const playAudio = () => {
+    const bgAudio = document.getElementById('background-audio');
+    if (bgAudio) {
+      bgAudio.play().catch(e => console.log('Audio autoplay prevented:', e));
+    }
+    // Remove listener after first interaction
+    document.removeEventListener('click', playAudio);
+    document.removeEventListener('touchstart', playAudio);
+  };
+  
+  document.addEventListener('click', playAudio);
+  document.addEventListener('touchstart', playAudio);
 
   // Initialize arrival (envelope + seal)
   initArrival({
