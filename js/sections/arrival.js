@@ -68,6 +68,9 @@ export function initArrival({ onEnvelopeOpened }) {
   popup.addEventListener('click', (e) => {
     e.stopPropagation(); // Prevent wrapper click
 
+    // Play background audio here since propagation is stopped
+    if (window.playBackgroundAudio) window.playBackgroundAudio();
+
     // Hide popup
     popup.classList.remove('video-door-popup--visible');
 
@@ -84,6 +87,9 @@ export function initArrival({ onEnvelopeOpened }) {
   // If user taps anywhere else on the wrapper while paused, also play
   videoWrapper.addEventListener('click', () => {
     if (hasPausedForDoor && !isVideoPlaying && !hasEnded) {
+      // Play background audio here too just in case
+      if (window.playBackgroundAudio) window.playBackgroundAudio();
+      
       popup.classList.remove('video-door-popup--visible');
       video.play();
       isVideoPlaying = true;

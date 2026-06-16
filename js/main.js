@@ -24,19 +24,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize background effects
   initParticles();
 
-  // Play background audio on first interaction
-  const playAudio = () => {
+  // Play background audio function (called on first interaction)
+  let audioPlayed = false;
+  window.playBackgroundAudio = () => {
+    if (audioPlayed) return;
     const bgAudio = document.getElementById('background-audio');
     if (bgAudio) {
+      // Force audio to start from 0:00 as requested
+      bgAudio.currentTime = 0;
       bgAudio.play().catch(e => console.log('Audio autoplay prevented:', e));
+      audioPlayed = true;
     }
-    // Remove listener after first interaction
-    document.removeEventListener('click', playAudio);
-    document.removeEventListener('touchstart', playAudio);
   };
   
-  document.addEventListener('click', playAudio);
-  document.addEventListener('touchstart', playAudio);
+  // Also attach to document just in case they click elsewhere first
+  document.addEventListener('click', window.playBackgroundAudio, { once: true });
+  document.addEventListener('touchstart', window.playBackgroundAudio, { once: true });
 
   // Initialize arrival (envelope + seal)
   initArrival({
