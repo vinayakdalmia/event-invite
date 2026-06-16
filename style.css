@@ -1595,7 +1595,7 @@ h1, h2, h3, h4, h5 {
   .section--arrival {
     max-width: none !important;
     width: 100vw !important;
-    background: transparent; /* Let body pattern show through */
+    background: var(--rust); /* Solid background just in case */
   }
 
   .grain-overlay,
@@ -1603,17 +1603,17 @@ h1, h2, h3, h4, h5 {
     max-width: 100%;
   }
 
-  /* Intro Video Constraints (Center it like a vertical strip) */
+  /* Intro Video Constraints (Full Screen Cover) */
   .arrival-video-wrapper {
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 500px; /* Constrain vertical video so it doesn't over-zoom */
+    left: 0;
+    transform: none;
+    width: 100vw;
+    max-width: none;
     height: 100vh;
     height: 100dvh;
-    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+    box-shadow: none;
     overflow: hidden;
   }
 
