@@ -10,23 +10,8 @@ export function initHighlights() {
   const header = document.querySelector('.highlights__header');
   const cards = document.querySelectorAll('.exp-card');
 
-  // Animate section header
-  if (header) {
-    gsap.fromTo(header,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: header,
-          start: 'top 80%',
-          toggleActions: 'play none none none',
-        },
-      }
-    );
-  }
+  // Header is static and visible instantly via CSS
+
 
   // Animate each card
   cards.forEach((card) => {
