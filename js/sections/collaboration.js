@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export function initCollaboration() {
   const header = document.querySelector('.collab__header');
-  const cards = document.querySelectorAll('.collab__card');
+  const cards = document.querySelectorAll('.collab__logo-link');
   const separator = document.querySelector('.collab__separator');
   const quote = document.querySelector('.collab__quote');
 

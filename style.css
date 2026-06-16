@@ -6,7 +6,8 @@
 /* --- DESIGN TOKENS --- */
 :root {
   /* Color Palette — exact brand colors */
-  --beige: #FFF8E6;
+  --beige: #8b3f2c;
+  --cream: #fff8eb;
   --gold: #B99874;
   --deep-gold: #896E50;
   --rust: #8B3F2C;
@@ -61,13 +62,30 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: var(--deep-brown);
+  color: var(--cream);
   background-color: var(--beige);
   line-height: 1.7;
   letter-spacing: 0.02em;
   overflow-x: hidden;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
+  position: relative;
+}
+
+/* Background repeating pattern overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/pattern.png');
+  background-repeat: repeat;
+  background-size: 140px;
+  opacity: 0.12;
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Prevent overscroll on iOS */
@@ -134,10 +152,10 @@ h1, h2, h3, h4, h5 {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(255, 248, 230, 0.7);
+  background: rgba(139, 63, 44, 0.6);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--gold-light);
+  border: 1px solid rgba(185, 152, 116, 0.4);
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -146,7 +164,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .audio-toggle:hover {
-  background: rgba(255, 248, 230, 0.9);
+  background: rgba(139, 63, 44, 0.85);
   border-color: var(--gold);
 }
 
@@ -158,7 +176,7 @@ h1, h2, h3, h4, h5 {
 .audio-icon {
   width: 20px;
   height: 20px;
-  color: var(--deep-gold);
+  color: var(--cream);
 }
 
 /* --- SECTIONS --- */
@@ -280,7 +298,7 @@ h1, h2, h3, h4, h5 {
    SECTION 2: INVITATION CARD REVEAL
    ============================================= */
 .section--invitation-card {
-  background: var(--beige);
+  background: transparent;
   overflow: hidden;
   min-height: 100vh;
   min-height: 100dvh;
@@ -506,8 +524,10 @@ h1, h2, h3, h4, h5 {
 /* =============================================
    SECTION 4: OPENING NARRATIVE
    ============================================= */
+
+
 .section--narrative {
-  background: var(--beige);
+  background: transparent;
   padding: var(--space-xl) var(--space-md);
   min-height: auto;
 }
@@ -528,7 +548,7 @@ h1, h2, h3, h4, h5 {
   font-style: italic;
   line-height: 1.6;
   text-align: center;
-  color: var(--deep-brown);
+  color: var(--cream);
   letter-spacing: 0.04em;
   max-width: 300px;
   opacity: 0;
@@ -539,7 +559,7 @@ h1, h2, h3, h4, h5 {
   font-size: 4rem;
   font-weight: 300;
   letter-spacing: 0.3em;
-  color: var(--rust);
+  color: var(--cream);
   text-transform: uppercase;
   opacity: 0;
 }
@@ -548,7 +568,7 @@ h1, h2, h3, h4, h5 {
    SECTION 5: EVENT DETAILS
    ============================================= */
 .section--event-details {
-  background: var(--beige);
+  background: transparent;
   padding: var(--space-xl) var(--space-md);
   min-height: auto;
 }
@@ -557,14 +577,16 @@ h1, h2, h3, h4, h5 {
   max-width: 340px;
   width: 100%;
   padding: var(--space-xl) var(--space-lg);
-  background: linear-gradient(135deg, rgba(255, 248, 230, 0.9), rgba(245, 237, 218, 0.9));
-  border: 0.5px solid var(--gold-light);
+  background: rgba(72, 45, 34, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 0.5px solid rgba(185, 152, 116, 0.4);
   border-radius: 2px;
   text-align: center;
   position: relative;
   box-shadow:
-    0 4px 30px rgba(72, 45, 34, 0.06),
-    0 1px 3px rgba(72, 45, 34, 0.04);
+    0 10px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
   opacity: 0;
 }
 
@@ -577,7 +599,7 @@ h1, h2, h3, h4, h5 {
   height: 6px;
   border-radius: 50%;
   background: var(--gold);
-  opacity: 0.4;
+  opacity: 0.6;
 }
 
 .event-card::before { top: 12px; left: 12px; }
@@ -595,14 +617,14 @@ h1, h2, h3, h4, h5 {
   font-size: 1.8rem;
   font-weight: 400;
   letter-spacing: 0.12em;
-  color: var(--deep-brown);
+  color: var(--cream);
 }
 
 .event-card__time {
   font-family: var(--font-secondary);
   font-size: 1rem;
   letter-spacing: 0.15em;
-  color: var(--deep-gold);
+  color: var(--gold);
 }
 
 .event-card__venue {
@@ -610,7 +632,7 @@ h1, h2, h3, h4, h5 {
   font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.1em;
-  color: var(--deep-brown);
+  color: var(--cream);
   margin-top: var(--space-xs);
 }
 
@@ -618,7 +640,7 @@ h1, h2, h3, h4, h5 {
   font-family: var(--font-body);
   font-size: 0.85rem;
   letter-spacing: 0.08em;
-  color: var(--deep-gold);
+  color: var(--gold);
 }
 
 /* Ornamental SVG dividers */
@@ -658,7 +680,7 @@ h1, h2, h3, h4, h5 {
   font-style: italic;
   line-height: 1.9;
   text-align: center;
-  color: var(--deep-gold);
+  color: var(--cream);
   letter-spacing: 0.03em;
   opacity: 0;
 }
@@ -667,8 +689,8 @@ h1, h2, h3, h4, h5 {
    SECTION 4: EXPERIENCE HIGHLIGHTS (Editorial)
    ============================================= */
 .section--highlights {
-  background: var(--beige);
-  padding: 2rem var(--space-md) 1.5rem;
+  background: transparent;
+  padding: 4rem var(--space-md) 2rem;
   min-height: auto;
   gap: 1.2rem;
 }
@@ -694,7 +716,7 @@ h1, h2, h3, h4, h5 {
   font-size: 2.2rem;
   font-weight: 300;
   font-style: italic;
-  color: var(--deep-brown);
+  color: var(--cream);
   letter-spacing: 0.04em;
   line-height: 1.2;
 }
@@ -936,8 +958,8 @@ h1, h2, h3, h4, h5 {
    SECTION 6: THE COLLABORATION
    ============================================= */
 .section--collaboration {
-  background: var(--beige);
-  padding: var(--space-md) var(--space-md) var(--space-xl);
+  background: transparent;
+  padding: 2rem var(--space-md) 2rem;
   min-height: auto;
   gap: var(--space-lg);
 }
@@ -962,7 +984,7 @@ h1, h2, h3, h4, h5 {
   font-size: 2.2rem;
   font-weight: 300;
   font-style: italic;
-  color: var(--deep-brown);
+  color: var(--cream);
   letter-spacing: 0.04em;
   line-height: 1.2;
 }
@@ -992,27 +1014,30 @@ h1, h2, h3, h4, h5 {
   width: 100%;
 }
 
-.collab__card {
+.collab__logo-link {
   flex: 1;
-  border-radius: 6px;
-  overflow: hidden;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  padding: 1.2rem 1rem 1rem;
+  justify-content: center;
+  padding: 1rem 0.5rem;
   opacity: 0;
   transform: translateY(20px);
   text-decoration: none;
+  transition: transform var(--duration-fast) var(--ease-ceremony);
+}
+
+.collab__logo-link:active {
+  transform: scale(0.97);
 }
 
 .collab__separator {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 300;
-  color: var(--deep-gold);
+  color: var(--gold);
   opacity: 0;
   user-select: none;
-  margin: 0 0.1rem;
+  margin: 0 0.5rem;
   line-height: 1;
 }
 
@@ -1020,25 +1045,18 @@ h1, h2, h3, h4, h5 {
   font-family: var(--font-secondary);
   font-size: 0.95rem;
   font-style: italic;
-  color: var(--deep-gold);
+  color: var(--gold);
   margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem; /* Increased margin bottom slightly for spacing */
   letter-spacing: 0.05em;
 }
 
-.collab__card--couture {
-  background: linear-gradient(180deg, #E8D5C5 0%, #D9C4B0 100%);
-}
-
-.collab__card--jewellery {
-  background: linear-gradient(180deg, #E8DDCC 0%, #D5C8B0 100%);
-}
-
 .collab__logo {
-  width: 80%;
-  height: 80px;
+  max-width: 135px; /* Increased logo size a little bit */
+  width: 100%;
+  height: auto;
+  max-height: 70px;
   object-fit: contain;
-  margin-bottom: 1.2rem;
 }
 
 .divider-image {
@@ -1055,7 +1073,7 @@ h1, h2, h3, h4, h5 {
   font-size: 0.55rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--deep-gold);
+  color: var(--gold);
   margin-bottom: 0.3rem;
 }
 
@@ -1063,7 +1081,7 @@ h1, h2, h3, h4, h5 {
   font-family: var(--font-heading);
   font-size: 1.3rem;
   font-weight: 400;
-  color: var(--deep-brown);
+  color: var(--cream);
   letter-spacing: 0.04em;
 }
 
@@ -1072,7 +1090,7 @@ h1, h2, h3, h4, h5 {
   font-size: 0.9rem;
   font-style: italic;
   line-height: 1.8;
-  color: var(--deep-brown);
+  color: var(--cream);
   letter-spacing: 0.02em;
   text-align: center;
   max-width: 320px;
@@ -1083,8 +1101,8 @@ h1, h2, h3, h4, h5 {
    SECTION 7: RSVP
    ============================================= */
 .section--rsvp {
-  background: var(--beige);
-  padding: var(--space-xl) var(--space-md);
+  background: transparent;
+  padding: 2rem var(--space-md) 4rem;
   min-height: auto;
 }
 
@@ -1111,7 +1129,7 @@ h1, h2, h3, h4, h5 {
   font-size: 2.5rem;
   font-weight: 300;
   font-style: italic;
-  color: var(--deep-brown);
+  color: var(--cream);
   letter-spacing: 0.04em;
   line-height: 1.2;
 }
@@ -1120,20 +1138,20 @@ h1, h2, h3, h4, h5 {
   font-family: var(--font-secondary);
   font-size: 0.9rem;
   font-style: italic;
-  color: var(--deep-gold);
+  color: var(--gold);
   letter-spacing: 0.03em;
   max-width: 280px;
 }
 
 .rsvp__button {
   padding: 1rem 2.5rem;
-  background: var(--rust);
+  background: var(--cream);
   border: none;
   font-family: var(--font-body);
   font-size: 0.7rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: #FFF8E6;
+  color: #8b3f2c;
   margin-top: var(--space-sm);
   transition: all var(--duration-fast) var(--ease-ceremony);
   cursor: pointer;
@@ -1141,7 +1159,7 @@ h1, h2, h3, h4, h5 {
 
 .rsvp__button:active {
   transform: scale(0.98);
-  background: #7A3525;
+  background: #e5ddcd;
 }
 
 .rsvp__button span {
@@ -1176,7 +1194,7 @@ h1, h2, h3, h4, h5 {
   font-family: var(--font-heading);
   font-size: 0.7rem;
   letter-spacing: 0.3em;
-  color: var(--deep-brown);
+  color: var(--cream);
   text-transform: uppercase;
 }
 
@@ -1213,11 +1231,12 @@ h1, h2, h3, h4, h5 {
   max-height: 90vh;
   max-height: 90dvh;
   overflow-y: auto;
-  background: linear-gradient(180deg, var(--beige) 0%, #F5EDDA 100%);
+  background: linear-gradient(180deg, #8b3f2c 0%, #763323 100%);
+  border-top: 1px solid rgba(185, 152, 116, 0.3);
   border-radius: 16px 16px 0 0;
   padding: var(--space-lg) var(--space-md) var(--space-xl);
   transform: translateY(100%);
-  box-shadow: 0 -10px 60px rgba(72, 45, 34, 0.15);
+  box-shadow: 0 -10px 60px rgba(0, 0, 0, 0.4);
 }
 
 .rsvp-modal__close {
@@ -1229,7 +1248,7 @@ h1, h2, h3, h4, h5 {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--deep-gold);
+  color: var(--cream);
   transition: color var(--duration-fast) var(--ease-ceremony);
 }
 
@@ -1258,7 +1277,7 @@ h1, h2, h3, h4, h5 {
   font-family: var(--font-heading);
   font-size: 0.75rem;
   letter-spacing: 0.35em;
-  color: var(--rust);
+  color: var(--gold);
   text-transform: uppercase;
 }
 
@@ -1266,7 +1285,7 @@ h1, h2, h3, h4, h5 {
   font-family: var(--font-heading);
   font-size: 1.8rem;
   font-weight: 300;
-  color: var(--deep-brown);
+  color: var(--cream);
   text-align: center;
   margin-bottom: 0.4rem;
 }
@@ -1275,7 +1294,7 @@ h1, h2, h3, h4, h5 {
   font-family: var(--font-secondary);
   font-size: 0.85rem;
   font-style: italic;
-  color: var(--gold);
+  color: rgba(255, 248, 235, 0.7);
   text-align: center;
   margin-bottom: var(--space-lg);
   letter-spacing: 0.03em;
@@ -1310,11 +1329,11 @@ h1, h2, h3, h4, h5 {
   font-size: 0.6rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--deep-gold);
+  color: rgba(255, 248, 235, 0.8);
 }
 
 .rsvp-form__field > label .required {
-  color: var(--rust);
+  color: var(--gold);
 }
 
 .rsvp-form__field input[type="text"],
@@ -1329,7 +1348,7 @@ h1, h2, h3, h4, h5 {
   font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 300;
-  color: var(--deep-brown);
+  color: var(--cream);
   outline: none;
   transition: border-color var(--duration-fast) var(--ease-ceremony);
   -webkit-appearance: none;
@@ -1362,7 +1381,7 @@ h1, h2, h3, h4, h5 {
   gap: 0.6rem;
   font-family: var(--font-body);
   font-size: 0.9rem;
-  color: var(--deep-brown);
+  color: var(--cream);
   cursor: pointer;
   position: relative;
   text-transform: none;
@@ -1389,7 +1408,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .radio-label input[type="radio"]:checked ~ .radio-custom {
-  border-color: var(--rust);
+  border-color: var(--cream);
 }
 
 .radio-label input[type="radio"]:checked ~ .radio-custom::after {
@@ -1401,7 +1420,7 @@ h1, h2, h3, h4, h5 {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: var(--rust);
+  background-color: var(--cream);
 }
 
 /* 1-5 Scale */
@@ -1422,7 +1441,7 @@ h1, h2, h3, h4, h5 {
 .scale-item span {
   font-family: var(--font-body);
   font-size: 0.8rem;
-  color: var(--deep-brown);
+  color: var(--cream);
 }
 
 /* Submit */
@@ -1430,20 +1449,20 @@ h1, h2, h3, h4, h5 {
   margin-top: var(--space-md);
   padding: 1.1rem 2rem;
   border: none;
-  background: var(--rust);
+  background: var(--cream);
   border-radius: 4px;
   font-family: var(--font-body);
   font-size: 0.65rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: #FFF8E6;
+  color: #8b3f2c;
   transition: all var(--duration-fast) var(--ease-ceremony);
   cursor: pointer;
 }
 
 .rsvp-form__submit:active {
   transform: scale(0.98);
-  background: #7A3525;
+  background: #e5ddcd;
 }
 
 .rsvp-form__submit span {
@@ -1470,14 +1489,14 @@ h1, h2, h3, h4, h5 {
 }
 
 .rsvp-confirmation__lotus circle {
-  fill: var(--rust);
+  fill: var(--cream);
 }
 
 .rsvp-confirmation__text {
   font-family: var(--font-secondary);
   font-size: 1.1rem;
   font-style: italic;
-  color: var(--deep-brown);
+  color: var(--cream);
   letter-spacing: 0.05em;
 }
 
