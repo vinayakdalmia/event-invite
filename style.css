@@ -1736,11 +1736,21 @@ h1, h2, h3, h4, h5 {
   /* ==========================
      COLLABORATION REDESIGN (DESKTOP)
      ========================== */
+  .section--collaboration {
+    max-width: none;
+    width: 100vw;
+    background: var(--cream);
+    padding: 5rem 0;
+    display: flex;
+    justify-content: center;
+  }
+
   .collab-card {
     max-width: 800px;
+    width: 100%;
     background: transparent;
     box-shadow: none;
-    padding: 5rem 0;
+    padding: 0;
   }
   
   .collab-card .invitation__corner {
