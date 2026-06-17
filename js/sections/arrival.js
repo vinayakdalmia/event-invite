@@ -20,7 +20,7 @@ export function initArrival({ onEnvelopeOpened }) {
   const isDesktop = window.innerWidth >= 1200;
   const DOOR_PAUSE_TIME = isDesktop ? 5.0 : 1.2;
 
-  const VIDEO_BLEND_TIME = 10.5;
+  const VIDEO_BLEND_TIME = isDesktop ? 12.5 : 10.5;
 
   let hasEnded = false;
 
