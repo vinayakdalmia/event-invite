@@ -123,14 +123,15 @@ h1, h2, h3, h4, h5 {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
-  z-index: 9998;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-image: url('../assets/pattern.png');
+  background-size: 200px 200px; /* Reduces GPU memory compared to full scale */
   background-repeat: repeat;
-  background-size: 200px 200px;
+  opacity: 0.08; /* Lowered opacity to mimic the overlay effect without using mix-blend-mode */
+  z-index: 1;
+  /* Removed mix-blend-mode: overlay because it destroys mobile scrolling performance */
 }
 
 /* --- PARTICLES CANVAS --- */

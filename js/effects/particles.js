@@ -94,6 +94,13 @@ function resize() {
 }
 
 export function initParticles() {
+  // Completely disable on mobile to prevent throttling and battery drain
+  if (window.innerWidth <= 768) {
+    const canvasEl = document.getElementById('particles-canvas');
+    if (canvasEl) canvasEl.style.display = 'none';
+    return;
+  }
+
   canvas = document.getElementById('particles-canvas');
   if (!canvas) return;
 
