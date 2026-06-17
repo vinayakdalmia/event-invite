@@ -785,7 +785,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .atelier-card--theatrical {
-  background-image: url('assets/images/theatrical.jpeg');
+  background-image: url('assets/theatrical.jpeg');
   justify-content: flex-start;
 }
 
@@ -1731,6 +1731,10 @@ h1, h2, h3, h4, h5 {
   .atelier-card {
     height: 450px; /* Taller on desktop to accommodate width */
     margin-bottom: 0;
+  }
+
+  .atelier-card--theatrical {
+    background-image: url('assets/theatrical-desktop.jpeg');
   }
 
   /* ==========================
