@@ -522,7 +522,7 @@ h1, h2, h3, h4, h5 {
   text-transform: uppercase;
   color: var(--gold);
   margin-top: 1rem;
-  font-weight: 400;
+  font-weight: bold;
 }
 
 /* Scroll indicator */
