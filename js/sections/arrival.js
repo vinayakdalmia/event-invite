@@ -17,7 +17,8 @@ export function initArrival({ onEnvelopeOpened }) {
   let isVideoPlaying = false;
 
   // IMPORTANT: Set this to the exact second where the door is fully closed.
-  const DOOR_PAUSE_TIME = 1.2;
+  const isDesktop = window.innerWidth >= 1200;
+  const DOOR_PAUSE_TIME = isDesktop ? 5.0 : 1.2;
 
   const VIDEO_BLEND_TIME = 10.5;
 
