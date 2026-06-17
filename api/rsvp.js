@@ -49,6 +49,25 @@ export default async function handler(req, res) {
 
     const result = await client.query(query, values);
 
+    // --- GOOGLE SHEETS WEBHOOK INTEGRATION ---
+    const GOOGLE_SHEETS_WEBHOOK_URL = "https://script.google.com/a/macros/vedajewel.co/s/AKfycbzGY84SuO015c0JDB-GyJk1PbfvqbJ4ElKM94kC3emHve1tA9w4eyAAGtGejTc8_6Nb4A/exec";
+    
+    try {
+      // Fire and forget the request to Google Apps Script. 
+      // We don't await the response body to avoid slowing down the RSVP process.
+      await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      console.log("Successfully forwarded RSVP to Google Sheets");
+    } catch (sheetError) {
+      // Catch errors silently so it doesn't break the user's RSVP submission if Google API is down
+      console.error("Failed to forward RSVP to Google Sheets:", sheetError);
+    }
+
     res.status(200).json({ message: 'RSVP successful!', id: result.rows[0].id });
   } catch (error) {
     console.error("Error inserting RSVP:", error);
