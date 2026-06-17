@@ -1737,6 +1737,14 @@ h1, h2, h3, h4, h5 {
     background-image: url('assets/theatrical-desktop.jpeg');
   }
 
+  .atelier-card--perfume {
+    background-image: url('assets/perfume-desktop.jpeg');
+  }
+
+  .atelier-card--jewellery {
+    background-image: url('assets/jewellery-desktop.jpeg');
+  }
+
   /* ==========================
      COLLABORATION REDESIGN (DESKTOP)
      ========================== */
