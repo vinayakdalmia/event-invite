@@ -1632,10 +1632,12 @@ h1, h2, h3, h4, h5 {
   .section--invitation-card {
     max-width: none;
     width: 100vw;
+    min-height: 100vh;
     padding: 0;
     background: var(--cream);
     display: flex;
     justify-content: center;
+    align-items: center;
     position: relative;
     overflow: hidden;
   }
@@ -1646,7 +1648,8 @@ h1, h2, h3, h4, h5 {
     bottom: 0;
     height: 90%;
     object-fit: contain;
-    opacity: 0.8;
+    mix-blend-mode: multiply; /* Removes white jpeg background */
+    opacity: 0.9;
   }
 
   .lotus-graphic--left {
@@ -1676,7 +1679,7 @@ h1, h2, h3, h4, h5 {
   .invitation__details-grid {
     flex-direction: row;
     justify-content: center;
-    align-items: stretch;
+    align-items: center; /* Prevents vertical lines from stretching too much */
     gap: 3rem;
     margin: 2rem 0;
   }
@@ -1696,11 +1699,23 @@ h1, h2, h3, h4, h5 {
   .invitation__time,
   .invitation__venue {
     margin-bottom: 0;
+    font-size: 1.2rem; /* Make text match the reference size nicely */
   }
   
   .invitation__venue-sub {
-    margin-top: 0.5rem;
+    margin-top: 0.2rem;
     margin-bottom: 0;
+  }
+
+  .invitation__description {
+    display: none; /* Reference image has no description text */
+  }
+
+  .invitation__rsvp-label {
+    min-width: 320px;
+    padding: 1.2rem 2rem;
+    margin-top: 1rem;
+    font-size: 0.65rem;
   }
 
   /* Atelier Cards: 3-column Grid Layout */
