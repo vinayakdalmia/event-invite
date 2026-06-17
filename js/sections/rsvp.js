@@ -88,6 +88,30 @@ export function initRsvp() {
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
   if (overlay) overlay.addEventListener('click', closeModal);
 
+  // 'Other' input toggles
+  const setupOtherToggle = (radioName, inputId) => {
+    const radios = document.querySelectorAll(`input[name="${radioName}"]`);
+    const otherInput = document.getElementById(inputId);
+    if (!otherInput) return;
+    
+    radios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        if (e.target.value === 'Other') {
+          otherInput.style.display = 'block';
+          otherInput.required = true;
+          // Animate in
+          gsap.fromTo(otherInput, { opacity: 0, height: 0 }, { opacity: 1, height: 'auto', duration: 0.3 });
+        } else {
+          otherInput.style.display = 'none';
+          otherInput.required = false;
+        }
+      });
+    });
+  };
+
+  setupOtherToggle('attending_as', 'attending_as_other_text');
+  setupOtherToggle('source', 'source_other_text');
+
   // Form submission
   if (form) {
     form.addEventListener('submit', async (e) => {
@@ -102,6 +126,14 @@ export function initRsvp() {
         // Gather all form data dynamically
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
+
+        // Replace 'Other' with the custom text
+        if (data.attending_as === 'Other' && data.attending_as_other_text) {
+          data.attending_as = data.attending_as_other_text;
+        }
+        if (data.source === 'Other' && data.source_other_text) {
+          data.source = data.source_other_text;
+        }
 
         const response = await fetch('/api/rsvp', {
           method: 'POST',
