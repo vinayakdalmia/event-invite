@@ -1719,18 +1719,47 @@ h1, h2, h3, h4, h5 {
     font-size: 0.65rem;
   }
 
-  /* Atelier Cards: 3-column Grid Layout */
+  /* ==========================
+     HIGHLIGHTS REDESIGN (DESKTOP)
+     ========================== */
+  .section--highlights {
+    max-width: none;
+    width: 100vw;
+    background: var(--cream);
+    padding: 6rem 0;
+    position: relative;
+    z-index: 2; /* Placed above body::before to remove the rust pattern */
+  }
+
+  .section--highlights .highlights__label {
+    color: var(--gold);
+    font-weight: bold;
+  }
+
+  .section--highlights .highlights__title {
+    color: var(--rust);
+  }
+
+  .section--highlights .divider-image {
+    content: url('assets/divider.png');
+  }
+
+  /* Atelier Cards: 3-column stitched Grid */
   .atelier-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-xl);
+    gap: 0;
     width: 100%;
-    max-width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
   .atelier-card {
-    height: 450px; /* Taller on desktop to accommodate width */
+    height: auto;
+    aspect-ratio: 1.1; /* Slightly wider than tall on desktop */
     margin-bottom: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .atelier-card--theatrical {
