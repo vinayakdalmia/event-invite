@@ -1763,21 +1763,21 @@ h1, h2, h3, h4, h5 {
     margin-bottom: 0;
     border-radius: 0;
     box-shadow: none;
-    padding: 3rem 2.5rem; /* Increase padding for larger cards */
+    padding: 1.8rem 2rem; /* Reduced to fit longer text without cutting off */
   }
 
   .atelier-card__label {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 
   .atelier-card__title {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
   }
 
   .atelier-card__desc {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    line-height: 1.4;
   }
 
   .atelier-card--theatrical {
