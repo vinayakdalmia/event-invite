@@ -28,6 +28,14 @@ export function initArrival({ onEnvelopeOpened }) {
 
   // 1. Play the video initially and wait for the door frame or blend time
   video.addEventListener('timeupdate', () => {
+    // Force skip to 2s/3s on the first frame to ensure it works on all browsers natively without breaking autoplay
+    if (!video.dataset.seeked) {
+      const targetTime = isDesktop ? 3.0 : 2.0;
+      if (video.currentTime < targetTime) {
+        video.currentTime = targetTime;
+      }
+      video.dataset.seeked = 'true';
+    }
     // Check for pause time
     if (!hasPausedForDoor && video.currentTime >= DOOR_PAUSE_TIME) {
       video.pause();
