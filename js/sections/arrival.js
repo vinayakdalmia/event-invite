@@ -82,9 +82,7 @@ export function initArrival({ onEnvelopeOpened }) {
     }
   });
 
-  // Ensure video starts at the right timestamp (handles iOS back-forward cache)
-  video.currentTime = isDesktop ? 3 : 2;
-  
+  // Let the browser handle the start time natively via the HTML #t= fragment
   // Force a play attempt to catch autoplay blocks
   const playPromise = video.play();
   if (playPromise !== undefined) {
