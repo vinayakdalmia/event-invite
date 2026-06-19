@@ -8,10 +8,9 @@ import { gsap } from 'gsap';
 export function initArrival({ onEnvelopeOpened }) {
   const videoWrapper = document.getElementById('video-wrapper');
   const video = document.getElementById('intro-video');
-  const popup = document.getElementById('video-door-popup');
   const arrivalSection = document.getElementById('arrival');
 
-  if (!videoWrapper || !video || !popup) return;
+  if (!videoWrapper || !video) return;
 
   let hasPausedForDoor = false;
   let isVideoPlaying = false;
@@ -32,8 +31,7 @@ export function initArrival({ onEnvelopeOpened }) {
       hasPausedForDoor = true;
       isVideoPlaying = false;
 
-      // Show the "Tap to open the door" pop-up
-      popup.classList.add('video-door-popup--visible');
+      // Wait for user tap
     }
 
     // Check for blend time
@@ -65,35 +63,12 @@ export function initArrival({ onEnvelopeOpened }) {
     }
   });
 
-  // 2. User taps the popup
-  popup.addEventListener('click', (e) => {
-    e.stopPropagation(); // Prevent wrapper click
-
-    if (window.playBackgroundAudio) window.playBackgroundAudio();
-
-    popup.classList.remove('video-door-popup--visible');
-    
-    // If the video hasn't reached the door yet, it means they clicked the fallback popup.
-    // They've already interacted, so don't pause it again!
-    if (!hasPausedForDoor) {
-      hasPausedForDoor = true; // Pretend it already paused, so it sails right past DOOR_PAUSE_TIME
-    }
-
-    video.play().catch(() => {});
-    isVideoPlaying = true;
-
-    if (navigator.vibrate) {
-      navigator.vibrate([15, 50, 10]);
-    }
-  });
-
   // If user taps anywhere else on the wrapper
   videoWrapper.addEventListener('click', () => {
     if (window.playBackgroundAudio) window.playBackgroundAudio();
     
     // If paused at door, or if it hasn't started yet, tapping the screen acts as a play button
     if ((hasPausedForDoor && !hasEnded) || video.currentTime === 0) {
-      popup.classList.remove('video-door-popup--visible');
       
       if (!hasPausedForDoor) {
         hasPausedForDoor = true; // Bypass door pause if they tapped early
@@ -101,6 +76,10 @@ export function initArrival({ onEnvelopeOpened }) {
 
       video.play().catch(() => {});
       isVideoPlaying = true;
+
+      if (navigator.vibrate) {
+        navigator.vibrate([15, 50, 10]);
+      }
     }
   });
 
@@ -111,17 +90,9 @@ export function initArrival({ onEnvelopeOpened }) {
   const playPromise = video.play();
   if (playPromise !== undefined) {
     playPromise.catch(() => {
-      // Autoplay blocked. Show popup immediately.
-      popup.classList.add('video-door-popup--visible');
+      // Autoplay blocked.
     });
   }
-
-  // Fallback: If video is stuck at 0s for 1.5 seconds (slow network or silent block)
-  setTimeout(() => {
-    if (video.currentTime === 0 || video.paused) {
-      popup.classList.add('video-door-popup--visible');
-    }
-  }, 1500);
 }
 
 function createGoldBurst(rect) {
