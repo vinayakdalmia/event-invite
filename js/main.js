@@ -27,7 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // Audio logic
   let audioPlayed = false;
   const audioToggleBtn = document.getElementById('audio-toggle');
-  const audioToggleText = audioToggleBtn ? audioToggleBtn.querySelector('.audio-toggle__text') : null;
+  const iconOn = document.getElementById('audio-icon-on');
+  const iconOff = document.getElementById('audio-icon-off');
+
+  const setAudioUI = (isOn) => {
+    if (iconOn && iconOff) {
+      iconOn.style.display = isOn ? 'inline-flex' : 'none';
+      iconOff.style.display = isOn ? 'none' : 'inline-flex';
+    }
+  };
 
   window.playBackgroundAudio = () => {
     if (audioPlayed) return;
@@ -39,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (playPromise !== undefined) {
         playPromise.then(() => {
           audioPlayed = true;
-          if (audioToggleText) audioToggleText.textContent = 'AUDIO ON';
+          setAudioUI(true);
           
           // Only play for 35 seconds total
           const timeCheck = () => {
@@ -51,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ease: 'power2.out',
                 onComplete: () => {
                   bgAudio.pause();
-                  if (audioToggleText) audioToggleText.textContent = 'AUDIO OFF';
+                  setAudioUI(false);
                 }
               });
             }
@@ -81,13 +89,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (bgAudio.currentTime >= 33) bgAudio.currentTime = 0; // reset if it finished
         bgAudio.volume = 1;
         bgAudio.play().then(() => {
-          if (audioToggleText) audioToggleText.textContent = 'AUDIO ON';
+          setAudioUI(true);
           audioPlayed = true; // prevent document click from interfering
         }).catch(() => {});
       } else {
         // Turn OFF
         bgAudio.pause();
-        if (audioToggleText) audioToggleText.textContent = 'AUDIO OFF';
+        setAudioUI(false);
       }
     });
   }
