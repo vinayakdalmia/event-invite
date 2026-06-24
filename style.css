@@ -1727,21 +1727,22 @@ h5 {
   .section--invitation-card {
     max-width: none;
     width: 100vw;
-    min-height: 100vh;
+    min-height: 85vh;
+    min-height: 85dvh;
     padding: 0;
     background: var(--cream);
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .lotus-graphic {
     display: block;
     position: absolute;
     top: 50%;
-    height: 90%;
+    height: 90vh;
     object-fit: contain;
     mix-blend-mode: multiply;
     /* Removes white jpeg background */
@@ -1828,7 +1829,7 @@ h5 {
     max-width: none;
     width: 100vw;
     background: var(--cream);
-    padding: 6rem 0;
+    padding: 2.5rem 0 5rem 0;
     position: relative;
     z-index: 2;
     /* Placed above body::before to remove the rust pattern */
@@ -1910,10 +1911,6 @@ h5 {
     position: relative;
     z-index: 3;
     overflow: visible;
-  }
-
-  .section--collaboration .lotus-graphic {
-    height: 90vh;
   }
 
   .collab-card {
