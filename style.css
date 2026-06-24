@@ -111,7 +111,11 @@ button {
 }
 
 /* --- TYPOGRAPHY --- */
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: var(--font-heading);
   font-weight: 300;
   line-height: 1.2;
@@ -127,9 +131,11 @@ h1, h2, h3, h4, h5 {
   height: 100vh;
   pointer-events: none;
   background-image: url('../assets/pattern.png');
-  background-size: 200px 200px; /* Reduces GPU memory compared to full scale */
+  background-size: 200px 200px;
+  /* Reduces GPU memory compared to full scale */
   background-repeat: repeat;
-  opacity: 0.08; /* Lowered opacity to mimic the overlay effect without using mix-blend-mode */
+  opacity: 0.08;
+  /* Lowered opacity to mimic the overlay effect without using mix-blend-mode */
   z-index: 1;
   /* Removed mix-blend-mode: overlay because it destroys mobile scrolling performance */
 }
@@ -225,7 +231,8 @@ h1, h2, h3, h4, h5 {
   height: 100%;
   overflow: hidden;
   z-index: 10;
-  background: var(--rust); /* Use rust to match body if it peaks out, though it shouldn't */
+  background: var(--rust);
+  /* Use rust to match body if it peaks out, though it shouldn't */
 }
 
 .arrival-video {
@@ -233,7 +240,8 @@ h1, h2, h3, h4, h5 {
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  pointer-events: none; /* Let the wrapper handle clicks */
+  pointer-events: none;
+  /* Let the wrapper handle clicks */
 }
 
 /* Door Pop-up */
@@ -294,12 +302,23 @@ h1, h2, h3, h4, h5 {
   text-align: center;
   line-height: 1.6;
   margin: 0;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 @keyframes ripple {
-  0% { width: 100%; height: 100%; opacity: 1; border-width: 1.5px; }
-  100% { width: 170%; height: 170%; opacity: 0; border-width: 0px; }
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    border-width: 1.5px;
+  }
+
+  100% {
+    width: 170%;
+    height: 170%;
+    opacity: 0;
+    border-width: 0px;
+  }
 }
 
 /* =============================================
@@ -316,15 +335,13 @@ h1, h2, h3, h4, h5 {
   position: relative;
   width: 100%;
   max-width: 360px;
-  background: linear-gradient(
-    180deg,
-    #F0E4D0 0%,
-    #F8F0E2 8%,
-    #FFF8E6 20%,
-    #FFF8E6 80%,
-    #F8F0E2 92%,
-    #F0E4D0 100%
-  );
+  background: linear-gradient(180deg,
+      #F0E4D0 0%,
+      #F8F0E2 8%,
+      #FFF8E6 20%,
+      #FFF8E6 80%,
+      #F8F0E2 92%,
+      #F0E4D0 100%);
   border-radius: 12px;
   padding: 1.5rem 1.5rem;
   display: flex;
@@ -355,21 +372,81 @@ h1, h2, h3, h4, h5 {
   background: var(--gold);
 }
 
-.invitation__corner--tl { top: 14px; left: 14px; }
-.invitation__corner--tl::before { top: 0; left: 0; width: 1px; height: 100%; }
-.invitation__corner--tl::after { top: 0; left: 0; width: 100%; height: 1px; }
+.invitation__corner--tl {
+  top: 14px;
+  left: 14px;
+}
 
-.invitation__corner--tr { top: 14px; right: 14px; }
-.invitation__corner--tr::before { top: 0; right: 0; width: 1px; height: 100%; }
-.invitation__corner--tr::after { top: 0; right: 0; width: 100%; height: 1px; }
+.invitation__corner--tl::before {
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+}
 
-.invitation__corner--bl { bottom: 14px; left: 14px; }
-.invitation__corner--bl::before { bottom: 0; left: 0; width: 1px; height: 100%; }
-.invitation__corner--bl::after { bottom: 0; left: 0; width: 100%; height: 1px; }
+.invitation__corner--tl::after {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
 
-.invitation__corner--br { bottom: 14px; right: 14px; }
-.invitation__corner--br::before { bottom: 0; right: 0; width: 1px; height: 100%; }
-.invitation__corner--br::after { bottom: 0; right: 0; width: 100%; height: 1px; }
+.invitation__corner--tr {
+  top: 14px;
+  right: 14px;
+}
+
+.invitation__corner--tr::before {
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+}
+
+.invitation__corner--tr::after {
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.invitation__corner--bl {
+  bottom: 14px;
+  left: 14px;
+}
+
+.invitation__corner--bl::before {
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+}
+
+.invitation__corner--bl::after {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.invitation__corner--br {
+  bottom: 14px;
+  right: 14px;
+}
+
+.invitation__corner--br::before {
+  bottom: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+}
+
+.invitation__corner--br::after {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+}
 
 /* Card body */
 .invitation__body {
@@ -402,7 +479,8 @@ h1, h2, h3, h4, h5 {
   height: auto;
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
-  mix-blend-mode: multiply; /* Removes the white background from the JPG */
+  mix-blend-mode: multiply;
+  /* Removes the white background from the JPG */
 }
 
 /* Diamond divider */
@@ -623,8 +701,15 @@ h1, h2, h3, h4, h5 {
   opacity: 0.6;
 }
 
-.event-card::before { top: 12px; left: 12px; }
-.event-card::after { top: 12px; right: 12px; }
+.event-card::before {
+  top: 12px;
+  left: 12px;
+}
+
+.event-card::after {
+  top: 12px;
+  right: 12px;
+}
 
 .event-card__content {
   display: flex;
@@ -771,7 +856,8 @@ h1, h2, h3, h4, h5 {
 
 .atelier-card {
   position: relative;
-  background: #FAF4EB; /* Soft warm ivory */
+  background: #FAF4EB;
+  /* Soft warm ivory */
   border-radius: 4px;
   padding: 2.5rem 1.5rem;
   display: flex;
@@ -815,7 +901,7 @@ h1, h2, h3, h4, h5 {
   height: 100%;
   top: 0;
   left: 0;
-  background-image: 
+  background-image:
     radial-gradient(circle at 0 0, var(--rust) 2px, transparent 2.5px),
     radial-gradient(circle at 100% 0, var(--rust) 2px, transparent 2.5px),
     radial-gradient(circle at 0 100%, var(--rust) 2px, transparent 2.5px),
@@ -953,22 +1039,27 @@ h1, h2, h3, h4, h5 {
   .atelier-card {
     padding: 1.5rem 1rem;
   }
+
   .atelier-card__content {
     align-items: flex-start;
     text-align: left;
     max-width: 80%;
   }
+
   .atelier-card__title {
     font-size: 1.35rem;
     margin-bottom: 0.5rem;
   }
+
   .atelier-card__desc {
     font-size: 0.8rem;
   }
+
   .atelier-card__notes-column {
     padding-right: 0;
   }
 }
+
 /* =============================================
    SECTION 6: THE COLLABORATION
    ============================================= */
@@ -982,15 +1073,13 @@ h1, h2, h3, h4, h5 {
   position: relative;
   width: 100%;
   max-width: 360px;
-  background: linear-gradient(
-    180deg,
-    #F0E4D0 0%,
-    #F8F0E2 8%,
-    #FFF8E6 20%,
-    #FFF8E6 80%,
-    #F8F0E2 92%,
-    #F0E4D0 100%
-  );
+  background: linear-gradient(180deg,
+      #F0E4D0 0%,
+      #F8F0E2 8%,
+      #FFF8E6 20%,
+      #FFF8E6 80%,
+      #F8F0E2 92%,
+      #F0E4D0 100%);
   border-radius: 12px;
   padding: 2.5rem 1.5rem;
   display: flex;
@@ -1096,7 +1185,8 @@ h1, h2, h3, h4, h5 {
 }
 
 .collab__logo {
-  max-width: 135px; /* Increased logo size a little bit */
+  max-width: 135px;
+  /* Increased logo size a little bit */
   width: 100%;
   height: auto;
   max-height: 70px;
@@ -1380,7 +1470,7 @@ h1, h2, h3, h4, h5 {
   gap: 1rem;
 }
 
-.rsvp-form__field > label {
+.rsvp-form__field>label {
   font-family: var(--font-body);
   font-size: 0.6rem;
   letter-spacing: 0.25em;
@@ -1388,7 +1478,7 @@ h1, h2, h3, h4, h5 {
   color: rgba(255, 248, 235, 0.8);
 }
 
-.rsvp-form__field > label .required {
+.rsvp-form__field>label .required {
   color: var(--gold);
 }
 
@@ -1463,11 +1553,11 @@ h1, h2, h3, h4, h5 {
   flex-shrink: 0;
 }
 
-.radio-label input[type="radio"]:checked ~ .radio-custom {
+.radio-label input[type="radio"]:checked~.radio-custom {
   border-color: var(--cream);
 }
 
-.radio-label input[type="radio"]:checked ~ .radio-custom::after {
+.radio-label input[type="radio"]:checked~.radio-custom::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -1560,6 +1650,7 @@ h1, h2, h3, h4, h5 {
    REDUCED MOTION
    ============================================= */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -1607,7 +1698,8 @@ h1, h2, h3, h4, h5 {
   .section--arrival {
     max-width: none !important;
     width: 100vw !important;
-    background: var(--rust); /* Solid background just in case */
+    background: var(--rust);
+    /* Solid background just in case */
   }
 
   .grain-overlay,
@@ -1651,7 +1743,8 @@ h1, h2, h3, h4, h5 {
     bottom: 0;
     height: 90%;
     object-fit: contain;
-    mix-blend-mode: multiply; /* Removes white jpeg background */
+    mix-blend-mode: multiply;
+    /* Removes white jpeg background */
     opacity: 0.9;
   }
 
@@ -1672,17 +1765,20 @@ h1, h2, h3, h4, h5 {
     background: transparent;
     border: none;
     box-shadow: none;
-    z-index: 2; /* keep above lotuses */
+    z-index: 2;
+    /* keep above lotuses */
   }
 
   .invitation__corner {
-    display: none; /* Hide corners for the full-width look */
+    display: none;
+    /* Hide corners for the full-width look */
   }
 
   .invitation__details-grid {
     flex-direction: row;
     justify-content: center;
-    align-items: center; /* Prevents vertical lines from stretching too much */
+    align-items: center;
+    /* Prevents vertical lines from stretching too much */
     gap: 3rem;
     margin: 2rem 0;
   }
@@ -1702,16 +1798,18 @@ h1, h2, h3, h4, h5 {
   .invitation__time,
   .invitation__venue {
     margin-bottom: 0;
-    font-size: 1.2rem; /* Make text match the reference size nicely */
+    font-size: 1.2rem;
+    /* Make text match the reference size nicely */
   }
-  
+
   .invitation__venue-sub {
     margin-top: 0.2rem;
     margin-bottom: 0;
   }
 
   .invitation__description {
-    display: none; /* Reference image has no description text */
+    display: none;
+    /* Reference image has no description text */
   }
 
   .invitation__rsvp-label {
@@ -1731,7 +1829,8 @@ h1, h2, h3, h4, h5 {
     background: var(--cream);
     padding: 6rem 0;
     position: relative;
-    z-index: 2; /* Placed above body::before to remove the rust pattern */
+    z-index: 2;
+    /* Placed above body::before to remove the rust pattern */
   }
 
   .section--highlights .highlights__label {
@@ -1759,11 +1858,13 @@ h1, h2, h3, h4, h5 {
 
   .atelier-card {
     height: auto;
-    aspect-ratio: 16/9; /* Matches the natural 1.78 aspect ratio of the desktop images */
+    aspect-ratio: 16/9;
+    /* Matches the natural 1.78 aspect ratio of the desktop images */
     margin-bottom: 0;
     border-radius: 0;
     box-shadow: none;
-    padding: 1.8rem 2rem; /* Reduced to fit longer text without cutting off */
+    padding: 1.8rem 2rem;
+    /* Reduced to fit longer text without cutting off */
   }
 
   .atelier-card__label {
@@ -1815,11 +1916,11 @@ h1, h2, h3, h4, h5 {
     position: relative;
     z-index: 2;
   }
-  
+
   .collab-card .invitation__corner {
     display: none;
   }
-  
+
   .collab__label-top {
     font-size: 1.2rem;
     letter-spacing: 0.6em;
@@ -1855,7 +1956,7 @@ h1, h2, h3, h4, h5 {
   .collab__gifting {
     margin-top: 2rem;
   }
-  
+
   .collab__gifting .collab__divider-text {
     margin-bottom: 1.5rem;
   }
@@ -1918,7 +2019,9 @@ h1, h2, h3, h4, h5 {
 }
 
 /* Hardware acceleration for GSAP animations */
-.section--arrival, .invitation, .collab-card {
+.section--arrival,
+.invitation,
+.collab-card {
   will-change: transform, opacity;
 }
 
