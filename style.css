@@ -1740,22 +1740,23 @@ h5 {
   .lotus-graphic {
     display: block;
     position: absolute;
-    bottom: 0;
+    top: 50%;
     height: 90%;
     object-fit: contain;
     mix-blend-mode: multiply;
     /* Removes white jpeg background */
     opacity: 0.9;
+    pointer-events: none;
   }
 
   .lotus-graphic--left {
     left: 0;
-    transform: translateX(-40%);
+    transform: translate(-40%, -50%);
   }
 
   .lotus-graphic--right {
     right: 0;
-    transform: translateX(40%) scaleX(-1);
+    transform: translate(40%, -50%) scaleX(-1);
   }
 
   .invitation {
@@ -1899,15 +1900,19 @@ h5 {
   .section--collaboration {
     max-width: none;
     width: 100vw;
-    min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 55vh;
+    min-height: 55dvh;
     background: var(--cream);
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+  }
+
+  .section--collaboration .lotus-graphic {
+    height: 90vh;
   }
 
   .collab-card {
