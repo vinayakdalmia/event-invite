@@ -589,7 +589,7 @@ h5 {
 /* RSVP label */
 .invitation__rsvp-label {
   background: none;
-  border: 1px solid var(--gold);
+  border: 1px solid var(--rust);
   border-radius: 2px;
   padding: 0.8rem 1.5rem;
   cursor: pointer;
@@ -598,7 +598,7 @@ h5 {
   font-size: 0.55rem;
   letter-spacing: 0.4em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--rust);
   margin-top: 1rem;
   font-weight: 700 !important;
   letter-spacing: 0.35em;
