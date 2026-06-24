@@ -3,6 +3,7 @@
  * Main orchestrator — initializes all sections and effects
  */
 
+import { inject } from '@vercel/analytics';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { inject } from '@vercel/analytics';
@@ -17,6 +18,9 @@ import { initCollaboration } from './sections/collaboration.js';
 import { initRsvp } from './sections/rsvp.js';
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Initialize Vercel Analytics
+inject();
 
 // Wait for fonts + DOM
 document.addEventListener('DOMContentLoaded', () => {
