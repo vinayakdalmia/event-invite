@@ -1752,12 +1752,12 @@ h5 {
 
   .lotus-graphic--left {
     left: 0;
-    transform: translate(-40%, -50%);
+    transform: translate(-40%, -45%);
   }
 
   .lotus-graphic--right {
     right: 0;
-    transform: translate(40%, -50%) scaleX(-1);
+    transform: translate(40%, -45%) scaleX(-1);
   }
 
   .invitation {
